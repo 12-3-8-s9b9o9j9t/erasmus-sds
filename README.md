@@ -1,14 +1,29 @@
-# sds-project
+# Erasmus+ SDS project
 
-# Team and roles
-*(might change with the adition of new members)*
+THe project is an application referencing all the courses Erasmus+ students can attend at Poznań University of Technology, with comments left by previous Erasmus+ students, and the possibility to sketch a learning agreement.
 
-Hector Marchand (Scrum Master/Developer)
+## Roles and responsibilities
 
-Yanis Bouger (Product Owner/Developer)
+- Hector Marchand (Scrum Master/Developer):
+ - Responsible for the meeting schedules
+ - Responsible for the progress of the project
+ - Responsible for the frontend
 
-Tom Picaud (Developer)
+- Valeria Azurduy Guzman (Product Owner):
+ - Respionsible for the choice of the users story to implement
+ - Responsible for the validation criteria of the user stories implementations
 
-# Means of Communication
+- Yanis Bouger (Developer):
+ - Responsible for the backend
 
-Currently mainly via direct interaction, and a little using discord. Discord could play a bigger role with new members joining.
+- Tom Picaud (Developer):
+ - Responsible for the CI
+
+- Sergio Gomez Martin (Developer)
+ - Responsibility pending (was not available yet)
+
+## Communication strategies
+
+We communicate with messages using WhatsApp, and we use Discord to make stand-up meetings.
+
+## Installation manual
