@@ -5,9 +5,9 @@
 
 Hector Marchand (Scrum Master/Developer)
 
-Yanis Bouger (Product Owner/Developer)
+Valeria Azurduy Guzman (Product Owner)
 
-Tom Picaud (Developer)
+Tom Picaud, Yanis Bouger (Developer)
 
 # Means of Communication
 
