@@ -20,7 +20,7 @@ The project is an application referencing all the courses Erasmus+ students can 
     - Responsible for the CI
 
 - Sergio Gomez Martin (Developer)
-    - Responsibilities pending (was not available yet)
+    - Responsible for the frontend
 
 ## Communication strategies
 
