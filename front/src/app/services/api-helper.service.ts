@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { environment } from './../environments/environment';
 import { Observable, lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import {Environment} from "@angular/cli/lib/config/workspace-schema";
 
 const dev_base_url: string = "http://localhost:5225";
 
@@ -18,7 +16,7 @@ export class ApiHelperService {
   }: {
     endpoint: string;
     queryParams?: any;
-  }): Promise<any> {environment
+  }): Promise<any> {
     return this.request({ endpoint, method: 'GET', queryParams });
   }
 
