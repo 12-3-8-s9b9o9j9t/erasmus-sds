@@ -17,5 +17,3 @@ COPY nest-cli.json ./
 # Exposez le port sur lequel l'application écoute
 EXPOSE 3000
 
-# Démarrez l'application
-CMD ["npm", "run", "start:prod"]

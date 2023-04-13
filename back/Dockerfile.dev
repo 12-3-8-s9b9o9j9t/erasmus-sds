@@ -17,6 +17,3 @@ COPY nest-cli.json ./
 
 # Exposez le port sur lequel l'application écoute
 EXPOSE 3000
-
-# Démarrez l'application avec nodemon pour le développement
-CMD ["npm", "run", "start:dev"]
