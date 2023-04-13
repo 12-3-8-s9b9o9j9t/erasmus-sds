@@ -1,19 +1,13 @@
-# Utilisez une image de Node.js comme image de base
+# Base image
 FROM node:18-alpine
 
-# Définissez le répertoire de travail
 WORKDIR /app
 
-# Copiez les fichiers package.json et package-lock.json dans le conteneur
 COPY package*.json ./
 
-# Installez les dépendances du projet
 RUN npm install
 RUN npm i -g @nestjs/cli
 
-# Copiez le reste des fichiers dans le conteneur
 COPY tsconfig*.json ./
-COPY nest-cli.json ./
 
-# Exposez le port sur lequel l'application écoute
 EXPOSE 3000

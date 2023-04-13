@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.dev
+    container_name: sds-front-dev
+    restart: always
+    volumes:
+      - ./front/src:/app/front/src
+    ports:
+      - 4200:4200
+    depends_on:
+      - back
+    command: ng serve --host 0.0.0.0
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile.dev
+    container_name: sds-back-dev
+    restart: always
+    volumes:
+      - ./back:/app/back
+    ports:
+      - 3000:3000
+    command: nest start --watch
