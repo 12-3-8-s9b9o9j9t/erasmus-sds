@@ -9,6 +9,7 @@ COPY package*.json ./
 
 # Installez les dépendances du projet
 RUN npm install --production
+RUN npm i -g @nestjs/cli
 
 # Copiez le reste des fichiers dans le conteneur
 COPY tsconfig*.json ./
