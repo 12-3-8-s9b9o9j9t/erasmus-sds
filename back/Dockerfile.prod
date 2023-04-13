@@ -1,0 +1,21 @@
+# Utilisez une image de Node.js comme image de base
+FROM node:14-alpine
+
+# Définissez le répertoire de travail
+WORKDIR /app
+
+# Copiez les fichiers package.json et package-lock.json dans le conteneur
+COPY package*.json ./
+
+# Installez les dépendances du projet
+RUN npm install --production
+
+# Copiez le reste des fichiers dans le conteneur
+COPY tsconfig*.json ./
+COPY nest-cli.json ./
+
+# Exposez le port sur lequel l'application écoute
+EXPOSE 3000
+
+# Démarrez l'application
+CMD ["npm", "run", "start:prod"]
