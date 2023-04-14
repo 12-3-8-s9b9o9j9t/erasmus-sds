@@ -13,6 +13,9 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import {MatDividerModule} from "@angular/material/divider";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import {MatDividerModule} from "@angular/material/divider";
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
