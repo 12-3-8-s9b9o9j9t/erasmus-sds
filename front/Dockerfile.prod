@@ -1,14 +1,17 @@
 # Base image
-FROM node:18-alpine
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY --chown=node:node / ./
 
-RUN npm install --production
-RUN npm install -g @angular/cli
+COPY --chown=node:node package*.json ./
 
-COPY tsconfig*.json ./
-COPY angular.json ./
+RUN npm ci
+RUN npm run build --omit=dev
+COPY --chown=node:node . .
 
-EXPOSE 4200
+USER node
+
+FROM nginx:1-alpine
+COPY --from=build /app/dist/front /usr/share/nginx/html
