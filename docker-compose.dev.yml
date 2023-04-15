@@ -20,12 +20,12 @@ services:
     container_name: sds-back-dev
     restart: always
     volumes:
-      - ./back:/app/back
+      - ./back:/usr/src/app
     depends_on: 
       - db
     ports:
       - 3000:3000
-    command: nest start --watch
+    command: npm run start:dev
   db:
     image: postgres:15-alpine
     container_name: db
@@ -34,7 +34,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_PORT=5432
-      - POSTGRES_DB=tsdDB
+      - POSTGRES_DB=sdsDB
   pgadmin:
     image: dpage/pgadmin4:6
     container_name: pgadmin
