@@ -1,0 +1,80 @@
+<div class="flex mx-auto w-3/4 pt-6">
+	<!-- div for input course search and courses list -->
+	<div class="flex flex-col items-start w-1/2">
+
+		<div class="mx-auto">
+			<h2>All courses</h2>
+		</div>
+
+		<mat-form-field class="w-1/3">
+			<mat-placeholder>Search</mat-placeholder>
+			<input matInput type="text" [formControl]="searchControl" >
+		</mat-form-field>
+
+		<div class="flex flex-col items-start">
+			<div *ngFor="let course of filteredCourses" class="mt-4 flex flex-row">
+				<mat-card class="">
+
+					<mat-card-header>
+						<mat-card-title>
+							{{course.title}}
+						</mat-card-title>
+					</mat-card-header>
+
+					<mat-card-content>
+							<p>{{course.description}}</p>
+					</mat-card-content>
+
+				</mat-card>
+
+				<div class="my-auto pl-6">
+					<button mat-raised-button color="primary" class="h-14" (click)="selectCourse(course.id)">
+						<mat-icon>arrow_forward</mat-icon>
+					</button>
+				</div>
+				
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="w-32"></div>
+
+
+	<!-- div for the courses you selectionned for your ola -->
+	<div class="flex flex-col w-1/2">
+		<div class="mx-auto text-center">
+			<h2>Selected courses</h2>
+			<p class="text-xl">Total of ECTS points : {{totalECTSpoints}}</p>
+		</div>
+		
+		
+		<div class="flex flex-col pt-3">
+			<div *ngFor="let course of selectedCourses" class="mt-4 flex flex-row">
+
+				<div class="my-auto pr-6">
+					<button mat-raised-button color="primary" class="h-14" (click)="unselectCourse(course.id)">
+						<mat-icon class="rotate-180">arrow_forward</mat-icon>
+					</button>
+				</div>
+
+				<mat-card class="">
+
+					<mat-card-header>
+						<mat-card-title>
+							{{course.title}}
+						</mat-card-title>
+					</mat-card-header>
+
+					<mat-card-content>
+							<p>{{course.description}}</p>
+					</mat-card-content>
+
+				</mat-card>
+				
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -5,6 +5,9 @@ WORKDIR /app/front
 
 COPY package*.json ./
 
+# For tailwind
+COPY tailwind.config.js ./
+
 RUN npm install
 RUN npm install -g @angular/cli@14.2.11
 
