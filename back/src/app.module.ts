@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CoursesModule } from './courses/courses.module';
 import { CommentsModule } from './comments/comments.module';
 import { Course } from './courses/course.entity';
+import { Comment } from './comments/comment.entity';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { Course } from './courses/course.entity';
       password: 'postgres',
       database: 'postgres',
       entities: [
-        Course,
+        Course, Comment
       ],
       synchronize: true,
     }),

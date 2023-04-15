@@ -44,7 +44,7 @@ export class CoursesService {
     }
 
     async delete(id: number): Promise<boolean> {
-        let res = await this.repository.delete(id);
+        const res = await this.repository.delete(id);
         return res.affected > 0;
     }
 

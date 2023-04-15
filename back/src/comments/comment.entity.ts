@@ -7,8 +7,12 @@ export class Comment {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Course, (course) => course.comments, { onDelete: 'CASCADE' })
+    @ManyToOne(() => Course, (course) => course.comments, { eager: false, onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'courseId' })
     course: Course;
+
+    @Column()
+    courseId: number;
 
     @Column()
     text: string;
