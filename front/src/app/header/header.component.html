@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
-  <span class="pl-7">Erasmus SDS application</span>
+  <span class="px-7 hover:cursor-pointer" (click)="goToHome()">Erasmus SDS application</span>
+  <button mat-raised-button color="accent" class="w-56" (click)="goToOLAPage()">Generate my OLA</button>
   <div class="flex justify-end w-full pr-7">
     <nav class="text-sm">
-      <a class="text-purple-300 underline" href="https://www.put.poznan.pl/">
+      <a class="text-purple-100 underline" href="https://www.put.poznan.pl/">
         PUT website
       </a>
     </nav>
