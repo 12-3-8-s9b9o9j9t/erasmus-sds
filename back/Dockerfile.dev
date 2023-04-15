@@ -5,6 +5,8 @@ WORKDIR /app
 COPY package*.json ./
 
 RUN npm install
+RUN npm i -g @nestjs/cli
+RUN npm install @nestjs/typeorm
 
 COPY tsconfig*.json ./
 
