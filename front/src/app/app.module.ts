@@ -16,13 +16,16 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import { OlaPageComponent } from './ola-page/ola-page.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    OlaPageComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import {MatInputModule} from "@angular/material/input";
     MatDividerModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
