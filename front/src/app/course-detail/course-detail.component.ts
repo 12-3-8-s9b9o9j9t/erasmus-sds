@@ -40,7 +40,7 @@ export class CourseDetailComponent implements OnInit {
     this.router = router;
     this.route = route;
     this.apiService = api;
-    this.course = { title: "", id: 0, description: "", ECTSpoints: 0};
+    this.course = { title: "", id: 0, description: "", ECTSpoints: 0, ECTScard: "" };
   }
 
   async sendComment(): Promise<void> {
@@ -69,7 +69,7 @@ export class CourseDetailComponent implements OnInit {
 
     let co = await this.apiService.get({endpoint: "/courses/"+id});
 
-    this.course = { id: co.id, title: co.name, description: co.description, ECTSpoints: co.ECTS };
+    this.course = { id: co.id, title: co.name, description: co.description, ECTSpoints: co.ECTS, ECTScard: co.ECTScard };
 
     this.courseLoaded = true;
 
