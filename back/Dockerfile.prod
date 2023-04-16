@@ -4,7 +4,7 @@
 
 FROM node:18-alpine AS build
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
 # A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
@@ -12,9 +12,7 @@ WORKDIR /app
 COPY --chown=node:node package*.json ./
 
 # Install app dependencies using the `npm ci` command instead of `npm install`
-RUN npm install
-RUN npm i -g @nestjs/cli
-RUN npm install @nestjs/typeorm
+RUN npm ci
 
 # Bundle app source
 COPY --chown=node:node . .
@@ -38,8 +36,8 @@ USER node
 FROM node:18-alpine
 
 # Copy the bundled code from the build stage to the production image
-COPY --chown=node:node --from=build /app/node_modules ./node_modules
-COPY --chown=node:node --from=build /app/dist ./dist
+COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
+COPY --chown=node:node --from=build /usr/src/app/dist ./dist
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
