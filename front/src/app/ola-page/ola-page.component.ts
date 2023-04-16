@@ -27,6 +27,8 @@ export class OlaPageComponent implements OnInit{
   // total of ECTS points of the selectionned courses
   public totalECTSpoints: number = 0;
 
+  public loaded: boolean = false;
+
   constructor(
     api: ApiHelperService,
   ) 
@@ -34,13 +36,19 @@ export class OlaPageComponent implements OnInit{
     this.apiService = api;
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.searchControl.valueChanges.subscribe((value) => {
       this.filteredCourses = this._filter(value);
     });
 
-    this.allCourses = fakeCourses;
+    const cs: any = await this.apiService.get({endpoint: "/courses"});
+    
+    for(let c of cs) {
+      this.allCourses.push({id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS})
+    }
     this.filteredCourses = this.allCourses;
+
+    this.loaded = true;
   }
 
   _filter(value: string): Course[] {

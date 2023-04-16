@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-const dev_base_url: string = "http://localhost:5225";
+const dev_base_url: string = "http://localhost:3000";
 
 @Injectable({
   providedIn: 'root',

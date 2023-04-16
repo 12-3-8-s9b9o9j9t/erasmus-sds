@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Course} from "../home/home.component";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { ApiHelperService } from '../services/api-helper.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -14,6 +15,8 @@ export class CourseDetailComponent implements OnInit {
 
   private readonly router: Router;
 
+  private readonly apiService: ApiHelperService;
+
   public course: Course;
 
   public comments: Comment[] = [];
@@ -25,37 +28,59 @@ export class CourseDetailComponent implements OnInit {
     }
   )
 
+  public courseLoaded: boolean = false;
+
+  public commentsLoaded: boolean = false;
+
   constructor(
     route: ActivatedRoute,
-    router: Router
+    router: Router,
+    api: ApiHelperService
   ) {
     this.router = router;
     this.route = route;
+    this.apiService = api;
     this.course = { title: "", id: 0, description: "", ECTSpoints: 0};
   }
 
-  sendComment(): void {
-    let payload = this.commentForm.value;
-    // TO DO : post a comment
-  }
+  async sendComment(): Promise<void> {
+    let formValue = this.commentForm.value;
+    console.log(formValue);
 
-  ngOnInit(): void {
+    const date = new Date(Date.now()).toDateString();
+    const payload = { text: formValue.comment, author: formValue.name, date: date };
+
     let id: string | null= this.route.snapshot.paramMap.get("id");
     if (id == null) return ;
 
-    // TO DO : get by id
+    const ans = await this.apiService.post({ endpoint: "/comments/"+id, data: payload });
+    
+    let coms = await this.apiService.get({endpoint: "/comments/course/"+id});
 
-    this.course = { id: +id, title: "title of the course", description: "Lorem ipsum dolor sit amet, " +
-        "consectetur adipisicing elit. Aspernatur culpa doloremque eum ex id quae " +
-        "temporibus voluptatibus? Asperiores expedita impedit ipsa molestiae obcaecati " +
-        "tempore velit!", ECTSpoints: 6};
-
-    // TO DO : get comment for this course
-    const c: Comment = { name: "hector", content: "papapapapapapa mais non jte crois pannnnn nnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnnnnnnn nnnnnnnnnnnnn nnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnns" };
-    for(let i = 0; i < 20; i++) {
-      this.comments.push(c);
+    for (let com of coms) {
+      this.comments.push({ name: com.author, content: com.text });
     }
+    this.comments = this.comments.reverse(); 
+  }
 
+  async ngOnInit(): Promise<void> {
+    let id: string | null= this.route.snapshot.paramMap.get("id");
+    if (id == null) return ;
+
+    let co = await this.apiService.get({endpoint: "/courses/"+id});
+
+    this.course = { id: co.id, title: co.name, description: co.description, ECTSpoints: co.ECTS };
+
+    this.courseLoaded = true;
+
+    let coms = await this.apiService.get({endpoint: "/comments/course/"+id});
+
+    for (let com of coms) {
+      this.comments.push({ name: com.author, content: com.text });
+    }
+    this.comments = this.comments.reverse();
+
+    this.commentsLoaded = true;
   }
 }
 

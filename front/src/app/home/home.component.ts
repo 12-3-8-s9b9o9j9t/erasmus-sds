@@ -27,14 +27,12 @@ export class HomeComponent implements OnInit {
     await this.router.navigateByUrl("course/"+id);
   }
 
-  ngOnInit(): void {
-    let c : Course = { id: 1, title: "title of the course", description: "Lorem ipsum dolor sit amet, " +
-        "consectetur adipisicing elit. Aspernatur culpa doloremque eum ex id quae " +
-        "temporibus voluptatibus? Asperiores expedita impedit ipsa molestiae obcaecati " +
-        "tempore velit!", ECTSpoints: 6};
-
-    for (let i = 0; i < 20; i++)
-      this.courses.push(c);
+  async ngOnInit(): Promise<void> {
+    const cs: any = await this.apiService.get({endpoint: "/courses"});
+    
+    for(let c of cs) {
+      this.courses.push({id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS})
+    }
   }
 
 }
