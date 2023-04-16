@@ -6,26 +6,20 @@ services:
       dockerfile: Dockerfile.prod
     container_name: sds-front-prod
     restart: always
-    volumes:
-      - ./front/src:/app/front/src
     ports:
-      - 4200:4200
+      - 80:80
     depends_on:
       - back
-    command: ng serve --host 0.0.0.0
   back:
     build:
       context: ./back
       dockerfile: Dockerfile.prod
     container_name: sds-back-prod
     restart: always
-    volumes:
-      - ./back:/app/back
     depends_on: 
       - db
     ports:
       - 3000:3000
-    command: nest start
   db:
     image: postgres:15-alpine
     container_name: db
