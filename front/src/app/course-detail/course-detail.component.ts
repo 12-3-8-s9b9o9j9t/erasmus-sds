@@ -57,6 +57,8 @@ export class CourseDetailComponent implements OnInit {
     
     let coms = await this.apiService.get({endpoint: "/comments/course/"+id});
 
+    this.comments = [];
+
     for (let com of coms) {
       this.comments.push({ name: com.author, content: com.text });
     }
