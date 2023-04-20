@@ -27,3 +27,15 @@ The project is an application referencing all the courses Erasmus+ students can 
 We communicate with messages using WhatsApp, and we use Discord to make stand-up meetings.
 
 ## Installation manual
+
+The project is run using docker, the following commands can be used:
+
+- `docker-compose -f docker-compose.dev.yml up` to run in development mode.
+
+- `docker-compose up` to run in production mode.
+
+Once the application is running, you can access it in a web browser via:  
+
+- In development mode, http://localhost:4200 for the frontend and http://localhost:3000/api for the swagger api for the backend.
+
+- In production mode, http://localhost

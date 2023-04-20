@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.dev
+    container_name: sds-front-dev
+    restart: always
+    volumes:
+      - ./front/src:/app/front/src
+    ports:
+      - 4200:4200
+    depends_on:
+      - back
+    command: ng serve --host 0.0.0.0
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile.dev
+    container_name: sds-back-dev
+    restart: always
+    volumes:
+      - ./back:/usr/src/app
+    depends_on: 
+      - db
+    ports:
+      - 3000:3000
+    command: npm run start:dev
+  db:
+    image: postgres:15-alpine
+    container_name: db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=sdsDB
+  pgadmin:
+    image: dpage/pgadmin4:6
+    container_name: pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=a.a@a.com
+      - PGADMIN_DEFAULT_PASSWORD=a
+      - PGADMIN_LISTEN_PORT=5050
+    depends_on:
+      - db
+    ports:
+      - 5050:5050

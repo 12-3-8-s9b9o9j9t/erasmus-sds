@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.prod
+    container_name: sds-front-prod
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - back
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile.prod
+    container_name: sds-back-prod
+    restart: always
+    depends_on: 
+      - db
+    ports:
+      - 3000:3000
+  db:
+    image: postgres:15-alpine
+    container_name: db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=sdsDB
+  pgadmin:
+    image: dpage/pgadmin4:6
+    container_name: pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=a.a@a.com
+      - PGADMIN_DEFAULT_PASSWORD=a
+      - PGADMIN_LISTEN_PORT=5050
+    depends_on:
+      - db
+    ports:
+      - 5050:5050

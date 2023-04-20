@@ -1,0 +1,19 @@
+# Base image
+FROM node:18-alpine AS build
+
+WORKDIR /app
+
+COPY --chown=node:node / ./
+
+COPY --chown=node:node package*.json ./
+COPY --chown=node:node tailwind.config.js ./
+
+RUN npm ci
+RUN npm install -g @angular/cli
+RUN npm run build --omit=dev
+COPY --chown=node:node . .
+
+USER node
+
+FROM nginx:1-alpine
+COPY --from=build /app/dist/front /usr/share/nginx/html
