@@ -8,11 +8,11 @@
 
 		<mat-form-field class="w-1/3">
 			<mat-placeholder>Search</mat-placeholder>
-			<input matInput type="text" [formControl]="searchControl" >
+			<input matInput type="text" [formControl]="searchControl">
 		</mat-form-field>
 
 		<div class="flex flex-col items-start" *ngIf="loaded">
-			<div *ngFor="let course of filteredCourses" class="mt-4 flex flex-row">
+			<div *ngFor="let course of filteredCourses" class="mt-10 flex flex-row">
 				<mat-card class="">
 
 					<mat-card-header>
@@ -22,7 +22,7 @@
 					</mat-card-header>
 
 					<mat-card-content>
-							<p>{{course.description}}</p>
+						<p>{{course.description}}</p>
 					</mat-card-content>
 
 				</mat-card>
@@ -32,7 +32,7 @@
 						<mat-icon>arrow_forward</mat-icon>
 					</button>
 				</div>
-				
+
 			</div>
 
 		</div>
@@ -44,12 +44,19 @@
 
 	<!-- div for the courses you selectionned for your ola -->
 	<div class="flex flex-col w-1/2">
-		<div class="mx-auto text-center">
-			<h2>Selected courses</h2>
-			<p class="text-xl">Total of ECTS points : {{totalECTSpoints}}</p>
+		<div class="flex flex-row">
+			<div class="mx-auto text-center">
+				<h2>Selected courses</h2>
+				<p class="text-xl">Total of ECTS points : {{totalECTSpoints}}</p>
+			</div>
+			<button mat-raised-button color="accent" class="h-10 w-48" (click)="generatePDF()">
+				<mat-icon>save_alt</mat-icon>
+				Generate OLA in PDF
+			</button>
 		</div>
-		
-		
+
+
+
 		<div class="flex flex-col pt-3">
 			<div *ngFor="let course of selectedCourses" class="mt-4 flex flex-row">
 
@@ -68,11 +75,11 @@
 					</mat-card-header>
 
 					<mat-card-content>
-							<p>{{course.description}}</p>
+						<p>{{course.description}}</p>
 					</mat-card-content>
 
 				</mat-card>
-				
+
 			</div>
 		</div>
 	</div>

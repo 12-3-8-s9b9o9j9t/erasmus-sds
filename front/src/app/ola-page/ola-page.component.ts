@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiHelperService } from '../services/api-helper.service';
 import { FormControl } from '@angular/forms';
 import { Course } from '../home/home.component';
+import { saveAs } from 'file-saver';
+import jsPDF from 'jspdf';
+import autoTable, { RowInput } from 'jspdf-autotable';
 
 @Component({
   selector: 'app-ola-page',
@@ -101,6 +104,29 @@ export class OlaPageComponent implements OnInit{
   orderArrays(): void {
     this.filteredCourses.sort((c1, c2) => c1.id - c2.id);
     this.selectedCourses.sort((c1, c2) => c1.id - c2.id);
+  }
+
+  generatePDF(): void {
+    const doc = new jsPDF();
+
+    let tableBody: RowInput[] = [];
+    
+    for (let course of this.selectedCourses) {
+      tableBody.push([course.title, course.ECTSpoints]);
+    }
+
+    autoTable(doc, {
+      head: [['Course', 'Number of ECTS points']],
+      body: tableBody,
+    })
+
+    // TO DO : add semester in table and total of ECTS points
+    
+    const pdfBlob = doc.output('blob');
+    
+    // Download the PDF file
+    saveAs(pdfBlob, 'hello_world.pdf');
+
   }
 
 }
