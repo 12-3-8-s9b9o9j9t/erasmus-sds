@@ -1,14 +1,23 @@
 version: "3.8"
 
 services:
+  reverse-proxy:
+    build: 
+      context: ./reverse-proxy
+    container_name: reverse-proxy
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - front
+      - back
+
   front:
     build:
       context: ./front
       dockerfile: Dockerfile.prod
     container_name: sds-front-prod
     restart: always
-    ports:
-      - 80:80
     depends_on:
       - back
 
