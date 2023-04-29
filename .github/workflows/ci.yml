@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+    branches: [ main, feature/ci ]
+  pull_request:
+    branches: [ main, feature ]
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setupe Node 18.12.1
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.12.1
+
+      - name: Go into the front directory
+        working-directory: ./front
+      
+      - name: Install dependencies, build and test
+        run: |
+          npm install
+          npm run build:ci
+          npm run test:ci
+        
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploy_dist
+          path: ./dist
+      - name: Archive code coverage results
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploy_coverage_results
+          path: ./coverage
