@@ -18,11 +18,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18.12.1
-
-      - name: Go into the front directory
+                
+      - name: Install dependencies, build and test in front
         working-directory: ./front
-      
-      - name: Install dependencies, build and test
         run: |
           npm install
           npm run build:ci
