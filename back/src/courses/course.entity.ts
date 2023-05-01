@@ -22,6 +22,9 @@ export class Course {
     @Column()
     ECTScard: string;
 
+    @Column()
+    faculties: string;
+
     @OneToMany(() => Comment, (comment) => comment.course)
     comments: Comment[];
 }

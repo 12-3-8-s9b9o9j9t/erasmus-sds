@@ -3,6 +3,7 @@ import { CoursesService } from './courses.service';
 import { Course } from './course.entity';
 import { CourseInput } from './course.input';
 import { ApiTags } from '@nestjs/swagger';
+import { Comment } from '../comments/comment.entity';
 
 @ApiTags('courses')
 @Controller('courses')
@@ -20,9 +21,18 @@ export class CoursesController {
     public async get(@Param('id') id: number): Promise<Course> {
         const course = await this.service.get(id);
         if (course === null) {
-            throw new HttpException('Course with id ({id}) not found', HttpStatus.NOT_FOUND);
+            throw new HttpException('Course with id ' + id + ' not found', HttpStatus.NOT_FOUND);
         }
         return course;
+    }
+
+    @Get(':id/comments')
+    public async getComments(@Param('id') id: number): Promise<Comment[]> {
+        const comments = await this.service.getComments(id);
+        if (comments === null) {
+            throw new HttpException('Course with id ' + id + ' not found', HttpStatus.NOT_FOUND);
+        }
+        return comments;
     }
 
     @Post()
@@ -32,7 +42,8 @@ export class CoursesController {
             input.description,
             input.ECTS,
             input.semester,
-            input.ECTScard);
+            input.ECTScard,
+            input.faculties);
     }
 
     @Put(':id')
@@ -43,7 +54,8 @@ export class CoursesController {
             input.description,
             input.ECTS,
             input.semester,
-            input.ECTScard);
+            input.ECTScard,
+            input.faculties);
     }
 
     @Delete(':id')

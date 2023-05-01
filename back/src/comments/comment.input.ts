@@ -9,18 +9,18 @@ export class CommentInput {
     public courseId: number;
 
     @ApiProperty({
+        description: 'The user id of the user',
+        example: 1,
+        type: Number,
+    })
+    public userId: number;
+
+    @ApiProperty({
         description: 'The text of the comment',
         example: 'This course is very interesting.',
         type: String,
     })
     public text: string;
-
-    @ApiProperty({
-        description: 'The author of the comment',
-        example: 'John Doe',
-        type: String,
-    })
-    public author: string;
 
     @ApiProperty({
         description: 'The date of the comment',
@@ -29,4 +29,22 @@ export class CommentInput {
     })
     public date: Date;
     
+}
+
+export class CommentUpdate {
+
+    @ApiProperty({
+        description: 'The new text of the comment',
+        example: 'This course is very interesting. And not too hard.',
+        type: String,
+    })
+    public text: string;
+
+    @ApiProperty({
+        description: 'The date of modification of the comment',
+        example: '2021-06-17',
+        type: Date,
+    })
+    public date: Date;
+
 }

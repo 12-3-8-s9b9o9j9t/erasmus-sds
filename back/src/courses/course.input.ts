@@ -36,4 +36,11 @@ export class CourseInput {
     })
     public ECTScard: string;
 
+    @ApiProperty({
+        description: 'The comma separated faculties that can take part in the course',
+        example: 'Faculty of Computing, Faculty of Electronics and Telecommunications',
+        type: String,
+    })
+    public faculties: string;
+
 }

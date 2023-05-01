@@ -22,22 +22,16 @@ export class CommentsService {
         return await this.repository.findOne({ where: { id: Equal(id) } });
     }
 
-    async create(courseId: number, text: string, author: string, date: Date): Promise<Comment> {
-        const comment = this.repository.create({ text, author, date, courseId });
+    async create(courseId: number, userId: number, text: string, date: Date): Promise<Comment> {
+        const comment = this.repository.create({ courseId, userId, text, date, modified: false, lastModified: date });
         return await this.repository.save(comment);
     }
 
-    async update(id: number, text: string, author: string, date: Date): Promise<Comment> {
+    async update(id: number, text: string, date: Date): Promise<Comment> {
         let comment = await this.get(id);
-        if (text !== undefined) {
-            comment.text = text;
-        }
-        if (author !== undefined) {
-            comment.author = author;
-        }
-        if (date !== undefined) {
-            comment.date = date;
-        }
+        comment.text = text;
+        comment.modified = true;
+        comment.lastModified = date;
         return await this.repository.save(comment);
     }
 
