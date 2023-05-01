@@ -18,6 +18,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import { OlaPageComponent } from './ola-page/ola-page.component';
 import {MatGridListModule} from "@angular/material/grid-list";
+import { LoginComponent } from './login/login.component';
+import {MatSelectModule} from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     HomeComponent,
     HeaderComponent,
     CourseDetailComponent,
-    OlaPageComponent
+    OlaPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
