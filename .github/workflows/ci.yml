@@ -46,40 +46,39 @@ jobs:
           path: ./coverage
   
   build-test-back:
-    steps:
-      name: buid and test back
-      defaults:
+    name: buid and test back
+    defaults:
         run:
-          working-directory: ./back
-      runs-on: ubuntu-latest
-      steps:
-        - name: checkout
-          uses: actions/checkout@v3
+        working-directory: ./back
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
 
-        - name: setup node 18.12.1
-          uses: actions/setup-node@v2
-          with:
-            node-version: 18.12.1
+      - name: setup node 18.12.1
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.12.1
 
-        - name: install dependencies
-          run: npm install
+      - name: install dependencies
+        run: npm install
 
-        - name: build
-          run: npm run build
+      - name: build
+        run: npm run build
 
-        - name: test
-          run: npm run test:cov
+      - name: test
+        run: npm run test:cov
 
-        - name: Archive build
-          if: success()
-          uses: actions/upload-artifact@v2
-          with:
-            name: deploy_dist
-          path: ./dist
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploy_dist
+        path: ./dist
 
-        - name: Archive code coverage results
-          if: success()
-          uses: actions/upload-artifact@v2
-          with:
-            name: deploy_coverage_results
-            path: ./coverage
+      - name: Archive code coverage results
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploy_coverage_results
+          path: ./coverage
