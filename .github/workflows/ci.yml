@@ -49,7 +49,7 @@ jobs:
     name: buid and test back
     defaults:
         run:
-        working-directory: ./back
+          working-directory: ./back
     runs-on: ubuntu-latest
     steps:
       - name: checkout
