@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  private readonly router: Router;
+  public readonly router: Router;
 
   constructor(
     router: Router

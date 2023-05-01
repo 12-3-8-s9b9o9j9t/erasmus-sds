@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Course} from "../home/home.component";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { ApiHelperService } from '../services/api-helper.service';
+import { isLoggedIn } from '../services/storage.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -31,6 +32,8 @@ export class CourseDetailComponent implements OnInit {
   public courseLoaded: boolean = false;
 
   public commentsLoaded: boolean = false;
+
+  public isConnected: boolean = isLoggedIn();  
 
   constructor(
     route: ActivatedRoute,

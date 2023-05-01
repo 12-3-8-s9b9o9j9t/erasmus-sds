@@ -19,6 +19,7 @@ import {MatInputModule} from "@angular/material/input";
 import { OlaPageComponent } from './ola-page/ola-page.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { LoginComponent } from './login/login.component';
+import {MatSelectModule} from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
