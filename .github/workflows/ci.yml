@@ -74,11 +74,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: deploy_dist
-          path: ./dist
+          path: ./back/dist
 
       - name: Archive code coverage results
         if: success()
         uses: actions/upload-artifact@v2
         with:
           name: deploy_coverage_results
-          path: ./coverage
+          path: ./back/coverage
