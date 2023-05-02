@@ -1,3 +1,4 @@
+import { User } from "../users/user.entity";
 import { Course } from "../courses/course.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
@@ -14,13 +15,23 @@ export class Comment {
     @Column()
     courseId: number;
 
+    @ManyToOne(() => User, (user) => user.comments, { eager: false, onDelete: 'NO ACTION' })
+    @JoinColumn({ name: 'userId' })
+    user: User;
+
+    @Column()
+    userId: number;
+
     @Column()
     text: string;
 
     @Column()
-    author: string;
+    date: Date;
 
     @Column()
-    date: Date;
+    modified: boolean;
+
+    @Column()
+    lastModified: Date;
         
 } 

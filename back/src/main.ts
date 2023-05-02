@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,12 +12,16 @@ async function bootstrap() {
       .setTitle('Erasmus+ API')
       .setDescription('The API for Erasmus+ students at PUT')
       .setVersion('1.0')
+      .addBasicAuth()
+      .addBearerAuth()
       .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api', app, document);
   }
 
   app.enableCors();
+
+  app.use(helmet());
 
   await app.listen(3000);
 }

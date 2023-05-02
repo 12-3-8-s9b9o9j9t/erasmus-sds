@@ -6,6 +6,9 @@ import { CoursesModule } from './courses/courses.module';
 import { CommentsModule } from './comments/comments.module';
 import { Course } from './courses/course.entity';
 import { Comment } from './comments/comment.entity';
+import { UsersModule } from './users/users.module';
+import { User } from './users/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -15,14 +18,16 @@ import { Comment } from './comments/comment.entity';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: "sdsDB",
+      database: 'sdsDB',
       entities: [
-        Course, Comment
+        Course, Comment, User
       ],
       synchronize: true,
     }),
     CoursesModule,
     CommentsModule,
+    UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
