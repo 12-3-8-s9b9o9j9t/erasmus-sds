@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { loggedIn } from '../services/storage.service';
+import { getToken, loggedIn, saveToken } from '../services/storage.service';
+import { ApiHelperService } from '../services/api-helper.service';
+import { saveName } from '../services/storage.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 
 	private readonly router: Router;
+
+	private readonly apiService: ApiHelperService;
 
 	public loginFormGroup: FormGroup = new FormGroup({
 		username: new FormControl('', Validators.required),
@@ -20,7 +24,7 @@ export class LoginComponent {
 	public registerFormGroup: FormGroup = new FormGroup({
 		username: new FormControl('', Validators.required),
 		password: new FormControl('', Validators.required),
-		faculty : new FormControl('', Validators.required),
+		faculty: new FormControl(''),
 	});
 
 	public faculties: string[] = [
@@ -33,14 +37,16 @@ export class LoginComponent {
 
 
 	constructor(
-		router: Router
-	){
+		router: Router,
+		apiService: ApiHelperService
+	) {
 		this.router = router;
+		this.apiService = apiService;
 	}
 
-	login(): void {
+	async login(): Promise<void> {
 		if (this.loginFormGroup.invalid) {
-			return ;
+			return;
 		}
 
 		const formValue = this.loginFormGroup.value;
@@ -48,25 +54,51 @@ export class LoginComponent {
 		const username: string = formValue.username;
 		const password: string = formValue.password;
 
-		// TO DO : get /user
-		loggedIn();
-		this.router.navigateByUrl("faculties");
+		const payload: any = {
+			username: username,
+			password: password
+		}
+
+		try {
+			const token: { access_token: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
+			loggedIn();
+			saveName(username);
+			saveToken(token.access_token);
+			this.router.navigateByUrl("faculties");
+		}
+		catch (e) {
+			console.error("Login error :", e);
+		}
 	}
 
-	register(): void {
+	async register(): Promise<void> {
 		if (this.registerFormGroup.invalid) {
-			return ;
+			return;
 		}
 
 		const formValue = this.registerFormGroup.value;
 
 		const username: string = formValue.username;
 		const password: string = formValue.password;
-		const faculty : string = formValue.faculty;
+		const faculty: string = formValue.faculty;
 
-		// TO DO : post /user
-		loggedIn();
-		this.router.navigateByUrl("faculties");
+		const payload: any = {
+			username: username,
+			password: password
+		}
+		
+		try {
+			await this.apiService.post({ endpoint: "/users", data: payload });
+			const token: { access_token: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
+			loggedIn();
+			saveName(username);
+			saveToken(token.access_token);
+			console.log(getToken())
+			this.router.navigateByUrl("faculties");
+		}
+		catch (e) {
+			console.error("Register error :", e);
+		}
 	}
 
 	connectAsGuest(): void {

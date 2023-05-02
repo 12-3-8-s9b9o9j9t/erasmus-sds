@@ -1,5 +1,6 @@
 const NAME_KEY : string = "NAME";
 const LOGGED_KEY : string = "LOGGED";
+const TOKEN_KEY: string = "TOKEN";
 
 export function saveName(name: string) : void {
     localStorage.setItem(NAME_KEY, name);
@@ -25,4 +26,16 @@ export function isLoggedIn(): boolean {
     }
 
     return Boolean(logged);
+}
+
+export function getToken(): string {
+  let token: string | null = localStorage.getItem(TOKEN_KEY);
+  if (token == null) {
+    return "";
+  }
+  return token;
+}
+
+export function saveToken(token: string): void {
+  localStorage.setItem(TOKEN_KEY, token);
 }

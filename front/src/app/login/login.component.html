@@ -3,7 +3,7 @@
     <mat-card class="flex flex-col text-center">
         <mat-card-title>Login</mat-card-title>
 
-        <mat-card-content class="pt-5">
+        <mat-card-content class="pt-4">
             <form [formGroup]="loginFormGroup" (submit)="login()">
                 <mat-form-field appearance="fill">
                     <mat-label>Username</mat-label>
@@ -28,7 +28,7 @@
     <mat-card class="flex flex-col text-center">
         <mat-card-title>Register</mat-card-title>
 
-        <mat-card-content>
+        <mat-card-content class="pt-4">
             <form [formGroup]="registerFormGroup" (submit)="register()">
                 <mat-form-field appearance="fill">
                     <mat-label>Username</mat-label>
@@ -42,6 +42,7 @@
                     <input matInput type="password" formControlName="password">
                 </mat-form-field>
 
+                <!-- ADD THIS FOR NEXT SPRINT I THINK
                 <br>
 
                 <mat-form-field appearance="fill">
@@ -51,7 +52,7 @@
                             {{faculty}}
                         </mat-option>
                     </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
 
                 <br>
 
