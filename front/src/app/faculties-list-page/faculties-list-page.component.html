@@ -1,0 +1,14 @@
+<div class="w-full text-center py-7">
+    <h1>Choose a faculty :</h1>
+</div>
+
+<div class="grid grid-flow-col gap-5 max-w-5xl mx-auto">
+    <mat-card *ngFor="let faculty of faculties" (click)="goToFaculty(faculty.link)"
+        class="hover:cursor-pointer hover:bg-blue-300/75 w-56 h-40 bg-blue-300">
+        <mat-card-header class="text-center justify-center">
+            <mat-card-title>
+                {{faculty.name}}
+            </mat-card-title>
+        </mat-card-header>
+    </mat-card>
+</div>

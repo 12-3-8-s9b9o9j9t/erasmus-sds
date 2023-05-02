@@ -1,6 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {ApiHelperService} from "../services/api-helper.service";
-import {Router} from "@angular/router";
+import { Component, Inject, OnInit } from '@angular/core';
+import { ApiHelperService } from "../services/api-helper.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -13,25 +13,36 @@ export class HomeComponent implements OnInit {
 
   private readonly router: Router;
 
+  private readonly route: ActivatedRoute;
+
   public courses: Course[] = [];
 
   constructor(
     apiHelperService: ApiHelperService,
-    router: Router
+    router: Router,
+    route: ActivatedRoute
   ) {
     this.apiService = apiHelperService;
     this.router = router;
+    this.route = route;
   }
 
   async goToCourseDetail(id: number): Promise<void> {
-    await this.router.navigateByUrl("course/"+id);
+    await this.router.navigateByUrl("course/" + id);
   }
 
   async ngOnInit(): Promise<void> {
-    const cs: any = await this.apiService.get({endpoint: "/courses"});
-    
-    for(let c of cs) {
-      this.courses.push({id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard})
+    const cs: any = await this.apiService.get({ endpoint: "/courses" });
+
+    const faculty: string | null = this.route.snapshot.paramMap.get("faculty");
+    if (faculty == null) {
+      return;
+    }
+
+    for (let c of cs) {
+      if (c.faculty === faculty) {
+        this.courses.push({ id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard })
+      }
     }
   }
 

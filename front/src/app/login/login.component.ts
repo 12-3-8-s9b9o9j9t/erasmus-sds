@@ -50,7 +50,7 @@ export class LoginComponent {
 
 		// TO DO : get /user
 		loggedIn();
-		this.router.navigateByUrl("home");
+		this.router.navigateByUrl("faculties");
 	}
 
 	register(): void {
@@ -66,10 +66,10 @@ export class LoginComponent {
 
 		// TO DO : post /user
 		loggedIn();
-		this.router.navigateByUrl("home");
+		this.router.navigateByUrl("faculties");
 	}
 
 	connectAsGuest(): void {
-		this.router.navigateByUrl("home");
+		this.router.navigateByUrl("faculties");
 	}
 }

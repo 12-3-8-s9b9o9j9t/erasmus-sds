@@ -4,11 +4,13 @@ import {HomeComponent} from "./home/home.component";
 import {CourseDetailComponent} from "./course-detail/course-detail.component";
 import {OlaPageComponent} from "./ola-page/ola-page.component";
 import { LoginComponent } from './login/login.component';
+import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "home", component: HomeComponent },
-  { path: "course/:id", component: CourseDetailComponent },
+  { path: "faculties", component: FacultiesListPageComponent },
+  { path: "faculties/:faculty", component: HomeComponent },
+  { path: "faculties/:faculty/course/:id", component: CourseDetailComponent },
   { path: "ola", component: OlaPageComponent },
   { path: "**", component: LoginComponent }
 ];

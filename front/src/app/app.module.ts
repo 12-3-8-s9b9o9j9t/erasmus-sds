@@ -19,7 +19,8 @@ import {MatInputModule} from "@angular/material/input";
 import { OlaPageComponent } from './ola-page/ola-page.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { LoginComponent } from './login/login.component';
-import {MatSelectModule} from '@angular/material/select'; 
+import {MatSelectModule} from '@angular/material/select';
+import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatSelectModule} from '@angular/material/select';
     HeaderComponent,
     CourseDetailComponent,
     OlaPageComponent,
-    LoginComponent
+    LoginComponent,
+    FacultiesListPageComponent,
   ],
   imports: [
     BrowserModule,
