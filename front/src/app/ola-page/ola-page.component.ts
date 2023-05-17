@@ -112,12 +112,13 @@ export class OlaPageComponent implements OnInit{
     let tableBody: RowInput[] = [];
     
     for (let course of this.selectedCourses) {
-      tableBody.push([course.title, course.ECTSpoints]);
+      tableBody.push([course.title, course.ECTSpoints,course]);
     }
 
     autoTable(doc, {
       head: [['Course', 'Number of ECTS points']],
       body: tableBody,
+      foot: [['Total', this.totalECTSpoints]],
     })
 
     // TO DO : add semester in table and total of ECTS points
@@ -125,7 +126,7 @@ export class OlaPageComponent implements OnInit{
     const pdfBlob = doc.output('blob');
     
     // Download the PDF file
-    saveAs(pdfBlob, 'hello_world.pdf');
+    saveAs(pdfBlob, 'resume_ola.pdf');
 
   }
 
