@@ -48,3 +48,13 @@ export class CommentUpdate {
     public date: Date;
 
 }
+
+export class CommentGet {
+    courseId: number;
+    username: string;
+    text: string;
+    date: Date;
+    modified: boolean;
+    lastModified: Date;
+    id: number;
+}

@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { CommentsService } from './comments.service';
 import { Comment } from './comment.entity';
-import { CommentInput, CommentUpdate } from './comment.input';
+import { CommentGet, CommentInput, CommentUpdate } from './comment.input';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('comments')
@@ -12,12 +12,12 @@ export class CommentsController {
     ) {}
 
     @Get()
-    public async getAll(): Promise<Comment[]> {
+    public async getAll(): Promise<CommentGet[]> {
         return this.service.getAll();
     }
 
     @Get(':id')
-    public async get(@Param('id') id: number): Promise<Comment> {
+    public async get(@Param('id') id: number): Promise<CommentGet> {
         const comment = await this.service.get(id);
         if (comment === null) {
             throw new HttpException('Comment with id ' + id + ' not found', HttpStatus.NOT_FOUND);

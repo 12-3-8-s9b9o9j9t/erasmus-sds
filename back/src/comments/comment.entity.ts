@@ -16,7 +16,7 @@ export class Comment {
     courseId: number;
 
     @ManyToOne(() => User, (user) => user.comments, { eager: false, onDelete: 'NO ACTION' })
-    @JoinColumn({ name: 'userId' })
+    @JoinColumn({ name: 'userId'})
     user: User;
 
     @Column()

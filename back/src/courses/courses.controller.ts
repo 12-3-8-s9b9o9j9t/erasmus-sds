@@ -4,6 +4,7 @@ import { Course } from './course.entity';
 import { CourseInput } from './course.input';
 import { ApiTags } from '@nestjs/swagger';
 import { Comment } from '../comments/comment.entity';
+import { CommentGet } from 'src/comments/comment.input';
 
 @ApiTags('courses')
 @Controller('courses')
@@ -27,7 +28,7 @@ export class CoursesController {
     }
 
     @Get(':id/comments')
-    public async getComments(@Param('id') id: number): Promise<Comment[]> {
+    public async getComments(@Param('id') id: number): Promise<CommentGet[]> {
         const comments = await this.service.getComments(id);
         if (comments === null) {
             throw new HttpException('Course with id ' + id + ' not found', HttpStatus.NOT_FOUND);

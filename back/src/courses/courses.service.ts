@@ -4,6 +4,7 @@ import { Equal, Repository } from 'typeorm';
 import { Course } from './course.entity';
 import { CommentsService } from '../comments/comments.service';
 import { Comment } from '../comments/comment.entity';
+import { CommentGet } from 'src/comments/comment.input';
 
 @Injectable()
 export class CoursesService {
@@ -21,7 +22,7 @@ export class CoursesService {
         return this.repository.findOne({ where: { id: Equal(id) } });
     }
 
-    async getComments(courseId: number): Promise<Comment[]> {
+    async getComments(courseId: number): Promise<CommentGet[]> {
         if (await this.get(courseId) === null) {
             return null;
         }
