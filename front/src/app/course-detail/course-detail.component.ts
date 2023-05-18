@@ -42,7 +42,7 @@ export class CourseDetailComponent implements OnInit {
     this.router = router;
     this.route = route;
     this.apiService = api;
-    this.course = { title: "", id: 0, description: "", ECTSpoints: 0, ECTScard: "" };
+    this.course = { title: "", id: 0, description: "", ECTSpoints: 0, ECTScard: "", semester: "" };
   }
 
   async sendComment(): Promise<void> {
@@ -100,7 +100,7 @@ export class CourseDetailComponent implements OnInit {
     }
 
 
-    this.course = { id: co.id, title: co.name, description: co.description, ECTSpoints: co.ECTS, ECTScard: co.ECTScard };
+    this.course = { id: co.id, title: co.name, description: co.description, ECTSpoints: co.ECTS, ECTScard: co.ECTScard, semester: co.semester };
 
     this.courseLoaded = true;
 

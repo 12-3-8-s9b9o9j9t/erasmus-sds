@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { isLoggedIn } from '../services/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,8 @@ export class HeaderComponent implements OnInit {
   }
 
   goToHome(): void {
-    this.router.navigateByUrl("");
+    const to: string = isLoggedIn() ? "/faculties" : "";
+    this.router.navigateByUrl(to);
   }
 
   ngOnInit(): void {
