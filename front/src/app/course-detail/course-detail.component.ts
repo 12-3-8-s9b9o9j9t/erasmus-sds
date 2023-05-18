@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {Course} from "../home/home.component";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Course } from "../home/home.component";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ApiHelperService } from '../services/api-helper.service';
-import { isLoggedIn } from '../services/storage.service';
+import { getID, isLoggedIn } from '../services/storage.service';
 
 @Component({
   selector: 'app-course-detail',
@@ -24,7 +24,6 @@ export class CourseDetailComponent implements OnInit {
 
   public commentForm: FormGroup = new FormGroup(
     {
-      name: new FormControl('', Validators.required),
       comment: new FormControl('', Validators.required),
     }
   )
@@ -33,7 +32,7 @@ export class CourseDetailComponent implements OnInit {
 
   public commentsLoaded: boolean = false;
 
-  public isConnected: boolean = isLoggedIn();  
+  public isConnected: boolean = isLoggedIn();
 
   constructor(
     route: ActivatedRoute,
@@ -48,37 +47,69 @@ export class CourseDetailComponent implements OnInit {
 
   async sendComment(): Promise<void> {
     let formValue = this.commentForm.value;
-    console.log(formValue);
 
-    const date = new Date(Date.now()).toDateString();
-    const payload = { text: formValue.comment, author: formValue.name, date: date };
+    const userID: number = getID();
 
-    let id: string | null= this.route.snapshot.paramMap.get("id");
-    if (id == null) return ;
-
-    const ans = await this.apiService.post({ endpoint: "/comments/"+id, data: payload });
-    
-    let coms = await this.apiService.get({endpoint: "/comments/course/"+id});
-
-    this.comments = [];
-
-    for (let com of coms) {
-      this.comments.push({ name: com.author, content: com.text });
+    // user not connected
+    if (userID < 0 || !this.isConnected) {
+      return;
     }
-    this.comments = this.comments.reverse(); 
+
+    const courseID = this.route.snapshot.paramMap.get("id");
+
+    const payload = {
+      courseId: courseID,
+      userId: userID,
+      text: formValue.comment,
+      date: new Date(Date.now())
+    }
+
+    console.log(payload)
+
+    // posting comment
+    try {
+      await this.apiService.post({ endpoint: "/comments", data: payload });
+    } catch (e) {
+      console.error("Error when posting comment :", e)
+    }
+
+    // getting comments
+    try {
+      const coms = await this.apiService.get({ endpoint: "/courses/" + courseID + "/comments" });
+      
+      this.comments = [];
+      for (let com of coms) {
+        this.comments.push({ name: com.author, content: com.text });
+      }
+
+      this.comments = this.comments.reverse();
+    } catch (e) {
+      console.error("Error when getting comments :", e)
+    }
   }
 
   async ngOnInit(): Promise<void> {
-    let id: string | null= this.route.snapshot.paramMap.get("id");
-    if (id == null) return ;
+    let id: string | null = this.route.snapshot.paramMap.get("id");
+    if (id == null) return;
 
-    let co = await this.apiService.get({endpoint: "/courses/"+id});
+    let co;
+    try {
+      co = await this.apiService.get({ endpoint: "/courses/" + id });
+    } catch (e) {
+      console.error("Error when getting course :", e);
+    }
+
 
     this.course = { id: co.id, title: co.name, description: co.description, ECTSpoints: co.ECTS, ECTScard: co.ECTScard };
 
     this.courseLoaded = true;
 
-    let coms = await this.apiService.get({endpoint: "/comments/course/"+id});
+    let coms;
+    try {
+      coms = await this.apiService.get({ endpoint: "/courses/" + id + "/comments" });
+    } catch (e) {
+      console.error("Error when getting coms :", e);
+    }
 
     for (let com of coms) {
       this.comments.push({ name: com.author, content: com.text });
@@ -97,7 +128,7 @@ class Comment {
   constructor(
     name: string,
     content: string,
-  ){
+  ) {
     this.name = name;
     this.content = content;
   }

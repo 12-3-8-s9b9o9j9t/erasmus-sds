@@ -1,35 +1,48 @@
-const NAME_KEY : string = "NAME";
-const LOGGED_KEY : string = "LOGGED";
+const NAME_KEY: string = "NAME";
+const ID_KEY: string = "ID";
+const LOGGED_KEY: string = "LOGGED";
 const TOKEN_KEY: string = "TOKEN";
 
-export function saveName(name: string) : void {
-    localStorage.setItem(NAME_KEY, name);
+export function saveName(name: string): void {
+  sessionStorage.setItem(NAME_KEY, name);
 }
 
-export function getName() : string {
-  let name: string | null = localStorage.getItem(NAME_KEY);
+export function getName(): string {
+  let name: string | null = sessionStorage.getItem(NAME_KEY);
   if (name == null) {
     return "";
   }
   return name;
 }
 
+export function saveID(id: number): void {
+  sessionStorage.setItem(NAME_KEY, id.toString());
+}
+
+export function getID(): number {
+  let id: string | null = sessionStorage.getItem(ID_KEY);
+  if (id == null) {
+    return -1;
+  }
+  return +id;
+}
+
 export function loggedIn(): void {
-    localStorage.setItem(LOGGED_KEY, "true");
+  sessionStorage.setItem(LOGGED_KEY, "true");
 }
 
 export function isLoggedIn(): boolean {
-    const logged: string | null = localStorage.getItem(LOGGED_KEY);
+  const logged: string | null = sessionStorage.getItem(LOGGED_KEY);
 
-    if (logged == null) {
-        return false;
-    }
+  if (logged == null) {
+    return false;
+  }
 
-    return Boolean(logged);
+  return Boolean(logged);
 }
 
 export function getToken(): string {
-  let token: string | null = localStorage.getItem(TOKEN_KEY);
+  let token: string | null = sessionStorage.getItem(TOKEN_KEY);
   if (token == null) {
     return "";
   }
@@ -37,5 +50,5 @@ export function getToken(): string {
 }
 
 export function saveToken(token: string): void {
-  localStorage.setItem(TOKEN_KEY, token);
+  sessionStorage.setItem(TOKEN_KEY, token);
 }
