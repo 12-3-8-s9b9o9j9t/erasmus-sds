@@ -16,7 +16,7 @@ export function getName(): string {
 }
 
 export function saveID(id: number): void {
-  sessionStorage.setItem(NAME_KEY, id.toString());
+  sessionStorage.setItem(ID_KEY, id.toString());
 }
 
 export function getID(): number {
@@ -31,6 +31,10 @@ export function loggedIn(): void {
   sessionStorage.setItem(LOGGED_KEY, "true");
 }
 
+export function notLoggedIn(): void {
+  sessionStorage.setItem(LOGGED_KEY, "false");
+}
+
 export function isLoggedIn(): boolean {
   const logged: string | null = sessionStorage.getItem(LOGGED_KEY);
 
@@ -38,7 +42,7 @@ export function isLoggedIn(): boolean {
     return false;
   }
 
-  return Boolean(logged);
+  return logged === "true";
 }
 
 export function getToken(): string {

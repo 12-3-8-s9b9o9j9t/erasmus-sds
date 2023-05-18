@@ -79,7 +79,7 @@ export class CourseDetailComponent implements OnInit {
       
       this.comments = [];
       for (let com of coms) {
-        this.comments.push({ name: com.author, content: com.text });
+        this.comments.push({ name: com.username, content: com.text });
       }
 
       this.comments = this.comments.reverse();
@@ -112,7 +112,7 @@ export class CourseDetailComponent implements OnInit {
     }
 
     for (let com of coms) {
-      this.comments.push({ name: com.author, content: com.text });
+      this.comments.push({ name: com.username, content: com.text });
     }
     this.comments = this.comments.reverse();
 

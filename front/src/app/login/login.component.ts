@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { getToken, loggedIn, saveID, saveToken } from '../services/storage.service';
+import { getToken, loggedIn, notLoggedIn, saveID, saveToken } from '../services/storage.service';
 import { ApiHelperService } from '../services/api-helper.service';
 import { saveName } from '../services/storage.service';
 
@@ -108,6 +108,11 @@ export class LoginComponent {
 	}
 
 	connectAsGuest(): void {
+		saveID(-1);
+		saveName("");
+		saveToken("");
+		notLoggedIn();
+
 		this.router.navigateByUrl("faculties");
 	}
 }
