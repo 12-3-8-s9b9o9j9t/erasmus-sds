@@ -25,7 +25,7 @@ export class UsersController {
         return user;
     }
 
-    @Get(':name')
+    @Get('name/:name')
     public async getByName(@Param(':name') name: string): Promise<Partial<User>> {
         const user = await this.service.findOne(name);
         if (user === null) {
