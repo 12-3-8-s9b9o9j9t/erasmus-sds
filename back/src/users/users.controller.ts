@@ -25,6 +25,15 @@ export class UsersController {
         return user;
     }
 
+    @Get(':name')
+    public async getByName(@Param(':name') name: string): Promise<Partial<User>> {
+        const user = await this.service.findOne(name);
+        if (user === null) {
+            throw new HttpException('User with name ' + name + ' not found', HttpStatus.NOT_FOUND);
+        }
+        return user;
+    }
+
     @Post()
     public async create(@Body() input: UserInput): Promise<Partial<User>> {
         try {
