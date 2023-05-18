@@ -18,6 +18,11 @@ export class FacultiesListPageComponent {
     { name: "Architecture", link: "faculties/architecture" },
     { name: "Mechanical Engineering", link: "faculties/mechanicalengineering" },
     { name: "Chemical Technology", link: "faculties/chemicaltechnology" },
+    { name: "Civil Engineering", link: "faculties/civilengineering" },
+    { name: "Engineering Management", link: "faculties/engineeringmanagement" },
+    { name: "Environmental Engineering and Energy", link: "faculties/environmentalengineeringandenergy" },
+    { name: "Materials Engineering", link: "faculties/materialsengineering" }, 
+    { name: "Automatic Control and Robotics", link: "faculties/automaticcontrolandrobotics" },
   ]
 
   private readonly router: Router;

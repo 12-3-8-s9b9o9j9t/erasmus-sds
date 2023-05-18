@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { getToken, loggedIn, saveToken } from '../services/storage.service';
+import { getToken, loggedIn, saveID, saveToken } from '../services/storage.service';
 import { ApiHelperService } from '../services/api-helper.service';
 import { saveName } from '../services/storage.service';
 
@@ -60,10 +60,13 @@ export class LoginComponent {
 		}
 
 		try {
-			const token: { access_token: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
+			const token: { access_token: string, id: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
+
 			loggedIn();
 			saveName(username);
+			saveID(+token.id);
 			saveToken(token.access_token);
+			
 			this.router.navigateByUrl("faculties");
 		}
 		catch (e) {
@@ -88,12 +91,15 @@ export class LoginComponent {
 		}
 		
 		try {
-			await this.apiService.post({ endpoint: "/users", data: payload });
+			const response = await this.apiService.post({ endpoint: "/users", data: payload });
+			saveID(response.id);
+
 			const token: { access_token: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
+
 			loggedIn();
 			saveName(username);
 			saveToken(token.access_token);
-			console.log(getToken())
+
 			this.router.navigateByUrl("faculties");
 		}
 		catch (e) {
