@@ -26,7 +26,7 @@ export class UsersController {
     }
 
     @Get('name/:name')
-    public async getByName(@Param(':name') name: string): Promise<Partial<User>> {
+    public async getByName(@Param('name') name: string): Promise<Partial<User>> {
         const user = await this.service.findOne(name);
         if (user === null) {
             throw new HttpException('User with name ' + name + ' not found', HttpStatus.NOT_FOUND);
