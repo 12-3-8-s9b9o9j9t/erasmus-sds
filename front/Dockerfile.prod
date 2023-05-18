@@ -9,7 +9,7 @@ COPY --chown=node:node package*.json ./
 COPY --chown=node:node tailwind.config.js ./
 
 RUN npm ci
-RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli@14.2.11
 RUN npm run build --omit=dev
 COPY --chown=node:node . .
 
