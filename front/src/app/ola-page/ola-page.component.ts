@@ -46,7 +46,7 @@ export class OlaPageComponent implements OnInit{
     const cs: any = await this.apiService.get({endpoint: "/courses"});
     
     for(let c of cs) {
-      this.allCourses.push({id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard});
+      this.allCourses.push({id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard, semester: c.semester});
     }
     this.filteredCourses = this.allCourses;
 
@@ -112,20 +112,19 @@ export class OlaPageComponent implements OnInit{
     let tableBody: RowInput[] = [];
     
     for (let course of this.selectedCourses) {
-      tableBody.push([course.title, course.ECTSpoints]);
+      tableBody.push([course.title, course.semester, course.ECTSpoints, course]);
     }
 
     autoTable(doc, {
-      head: [['Course', 'Number of ECTS points']],
+      head: [['Course', 'Semester', 'Number of ECTS points']],
       body: tableBody,
+      foot: [['Total', this.totalECTSpoints + " ECTS points"]],
     })
-
-    // TO DO : add semester in table and total of ECTS points
     
     const pdfBlob = doc.output('blob');
     
     // Download the PDF file
-    saveAs(pdfBlob, 'hello_world.pdf');
+    saveAs(pdfBlob, 'resume_ola.pdf');
 
   }
 

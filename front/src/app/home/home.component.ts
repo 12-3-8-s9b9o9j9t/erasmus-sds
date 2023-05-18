@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
 
   public courses: Course[] = [];
 
+  public faculty_url: string | undefined;
+
+  public faculty: string | undefined;
+
   constructor(
     apiHelperService: ApiHelperService,
     router: Router,
@@ -28,20 +32,35 @@ export class HomeComponent implements OnInit {
   }
 
   async goToCourseDetail(id: number): Promise<void> {
-    await this.router.navigateByUrl("course/" + id);
+    await this.router.navigateByUrl("faculties/" + this.faculty_url + "/course/" + id);
   }
 
   async ngOnInit(): Promise<void> {
     const cs: any = await this.apiService.get({ endpoint: "/courses" });
 
-    const faculty: string | null = this.route.snapshot.paramMap.get("faculty");
-    if (faculty == null) {
+    const faculties_map: { [key: string]: string } = {
+      "computing": "Computing and Telecommunications",
+      "architecture": "Architecture",
+      "mechanicalengineering": "Mechanical Engineering",
+      "chemicaltechnology": "Chemical Engineering",
+      "civilengineering": "Civil Engineering",
+      "engineeringmanagement": "Engineering Management",
+      "environmentalengineeringandenergy": "Environmental Engineering and Energy",
+      "materialsengineering": "Materials Engineering",
+      "automaticcontrolandrobotics": "Automatic Control and Robotics"
+    }
+
+    const faculty_param: string | null = this.route.snapshot.paramMap.get("faculty");
+    if (faculty_param == null) {
       return;
     }
 
+    this.faculty_url = faculty_param;
+    this.faculty = faculties_map[this.faculty_url];
+
     for (let c of cs) {
-      if (c.faculty === faculty) {
-        this.courses.push({ id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard })
+      if (c.faculties === this.faculty) {
+        this.courses.push({ id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard, semester: c.semester })
       }
     }
   }
@@ -59,17 +78,21 @@ export class Course {
 
   public ECTScard: string;
 
+  public semester: string;
+
   constructor(
     id: number,
     title: string,
     description: string,
     ECTSpoints: number,
     ECTScard: string,
+    semester: string
   ) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.ECTSpoints = ECTSpoints;
     this.ECTScard = ECTScard;
+    this.semester = semester;
   }
 }

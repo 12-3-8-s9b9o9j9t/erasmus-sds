@@ -3,6 +3,7 @@
     <div class="grid grid-cols-2 w-full" *ngIf="courseLoaded">
       <div class="flex items-start text-3xl">{{course.title}}</div>
       <div class="flex items-end justify-end text-lg">{{course.ECTSpoints}} ECTS points</div>
+      <div class="text-lg">Semester : {{course.semester}}</div>
     </div>
 
     <div class="text-lg mt-10 text-justify">
@@ -27,11 +28,6 @@
         <textarea matInput type="text" formControlName="comment" class="h-24"></textarea>
       </mat-form-field>
       <br>
-
-      <mat-form-field class="mt-6 mr-6">
-        <mat-label>Enter your name</mat-label>
-        <input matInput type="text" formControlName="name">
-      </mat-form-field>
 
       <button mat-raised-button color="primary" type="submit" [disabled]="commentForm.invalid">
         Send comment
