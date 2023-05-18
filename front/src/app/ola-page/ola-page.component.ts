@@ -124,7 +124,7 @@ export class OlaPageComponent implements OnInit{
     const pdfBlob = doc.output('blob');
     
     // Download the PDF file
-    saveAs(pdfBlob, 'resume_ola.pdf');
+    saveAs(pdfBlob, 'ola.pdf');
 
   }
 
