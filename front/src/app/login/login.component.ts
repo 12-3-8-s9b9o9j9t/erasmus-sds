@@ -60,11 +60,13 @@ export class LoginComponent {
 		}
 
 		try {
-			const token: { access_token: string, id: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
+			const token: { access_token: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
+			
+			const user = await this.apiService.get({ endpoint: "/users/name/" + username });
 
 			loggedIn();
 			saveName(username);
-			saveID(+token.id);
+			saveID(+user.id);
 			saveToken(token.access_token);
 			
 			this.router.navigateByUrl("faculties");
