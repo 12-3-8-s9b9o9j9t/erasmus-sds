@@ -14,15 +14,15 @@ interface Faculty {
 export class FacultiesListPageComponent {
 
   public faculties: Faculty[] = [
-    { name: "Computing", link: "faculties/computing" },
-    { name: "Architecture", link: "faculties/architecture" },
-    { name: "Mechanical Engineering", link: "faculties/mechanicalengineering" },
-    { name: "Chemical Technology", link: "faculties/chemicaltechnology" },
-    { name: "Civil Engineering", link: "faculties/civilengineering" },
-    { name: "Engineering Management", link: "faculties/engineeringmanagement" },
-    { name: "Environmental Engineering and Energy", link: "faculties/environmentalengineeringandenergy" },
-    { name: "Materials Engineering", link: "faculties/materialsengineering" }, 
-    { name: "Automatic Control and Robotics", link: "faculties/automaticcontrolandrobotics" },
+    { name: "Computing", link: "computing" },
+    { name: "Architecture", link: "architecture" },
+    { name: "Mechanical Engineering", link: "mechanicalengineering" },
+    { name: "Chemical Technology", link: "chemicaltechnology" },
+    { name: "Civil Engineering", link: "civilengineering" },
+    { name: "Engineering Management", link: "engineeringmanagement" },
+    { name: "Environmental Engineering and Energy", link: "environmentalengineeringandenergy" },
+    { name: "Materials Engineering", link: "materialsengineering" }, 
+    { name: "Automatic Control and Robotics", link: "automaticcontrolandrobotics" },
   ]
 
   private readonly router: Router;

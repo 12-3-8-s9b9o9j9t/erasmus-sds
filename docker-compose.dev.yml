@@ -8,6 +8,7 @@ services:
     restart: always
     volumes:
       - ./front/src:/app/front/src
+      - ./front/tailwind.config.js:/app/front/tailwind.config.js
     ports:
       - 4200:4200
     depends_on:
