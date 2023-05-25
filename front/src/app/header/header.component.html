@@ -1,9 +1,17 @@
 <mat-toolbar color="primary">
-  <span class="px-7 hover:cursor-pointer" (click)="goToHome()">Erasmus SDS application</span>
-
-  <div *ngIf="this.router.url !== '/'">
-    <button mat-raised-button class="w-56 bg-blue-300" (click)="goToOLAPage()">Generate my OLA</button>
-  </div>
+  <nav>
+    <a [routerLink]="['/']" routerLinkActive="active">
+      <span class="pr-7">Erasmus SDS application</span>
+    </a>
+    |
+    <a [routerLink]="['faculties']" routerLinkActive="active">
+      <span class="px-7">Faculties</span>
+    </a>
+    |
+    <a [routerLink]="['ola']"routerLinkActive="active">
+      <span class="px-7">Generate my OLA</span>
+    </a>
+  </nav>
 
   <div class="flex justify-end w-full pr-7">
     <nav class="text-sm">
