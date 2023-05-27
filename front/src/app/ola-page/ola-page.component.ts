@@ -50,6 +50,8 @@ export class OlaPageComponent implements OnInit{
     }
     this.filteredCourses = this.allCourses;
 
+    console.log(this.filteredCourses.length);
+
     this.loaded = true;
   }
 
