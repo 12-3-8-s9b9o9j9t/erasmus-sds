@@ -5,13 +5,14 @@ import { Course } from '../home/home.component';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import autoTable, { RowInput } from 'jspdf-autotable';
+import { gradeMap } from '../constants/constants';
 
 @Component({
   selector: 'app-ola-page',
   templateUrl: './ola-page.component.html',
   styleUrls: ['./ola-page.component.scss']
 })
-export class OlaPageComponent implements OnInit{
+export class OlaPageComponent implements OnInit {
 
   private readonly apiService: ApiHelperService;
 
@@ -33,8 +34,7 @@ export class OlaPageComponent implements OnInit{
 
   constructor(
     api: ApiHelperService,
-  ) 
-  {
+  ) {
     this.apiService = api;
   }
 
@@ -43,10 +43,18 @@ export class OlaPageComponent implements OnInit{
       this.filteredCourses = this._filter(value);
     });
 
-    const cs: any = await this.apiService.get({endpoint: "/courses"});
-    
-    for(let c of cs) {
-      this.allCourses.push({id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard, semester: c.semester});
+    const cs: any = await this.apiService.get({ endpoint: "/courses" });
+
+    for (let c of cs) {
+      this.allCourses.push({
+        id: c.id,
+        title: c.name,
+        description: c.description,
+        ECTSpoints: c.ECTS,
+        ECTScard: c.ECTScard,
+        semester: c.semester,
+        grade: gradeMap[Math.round(c.rating) as keyof typeof gradeMap]
+      });
     }
     this.filteredCourses = this.allCourses;
 
@@ -67,7 +75,7 @@ export class OlaPageComponent implements OnInit{
     const course: Course | undefined = this.filteredCourses.find(c => c.id === id);
 
     if (course == undefined) {
-      return ;
+      return;
     }
 
     // update the arrays
@@ -76,8 +84,8 @@ export class OlaPageComponent implements OnInit{
       // update ects points
       this.totalECTSpoints += course.ECTSpoints;
     }
-    
-    this.filteredCourses = this.filteredCourses.filter(c => c.id !== course.id);    
+
+    this.filteredCourses = this.filteredCourses.filter(c => c.id !== course.id);
 
     this.orderArrays();
   }
@@ -86,7 +94,7 @@ export class OlaPageComponent implements OnInit{
     const course: Course | undefined = this.selectedCourses.find(c => c.id === id);
 
     if (course == undefined) {
-      return ;
+      return;
     }
 
     // update the arrays
@@ -112,7 +120,7 @@ export class OlaPageComponent implements OnInit{
     const doc = new jsPDF();
 
     let tableBody: RowInput[] = [];
-    
+
     for (let course of this.selectedCourses) {
       tableBody.push([course.title, course.semester, course.ECTSpoints, course]);
     }
@@ -122,9 +130,9 @@ export class OlaPageComponent implements OnInit{
       body: tableBody,
       foot: [['Total', this.totalECTSpoints + " ECTS points"]],
     })
-    
+
     const pdfBlob = doc.output('blob');
-    
+
     // Download the PDF file
     saveAs(pdfBlob, 'resume_ola.pdf');
 
