@@ -59,6 +59,17 @@ export class CourseGet {
 }
 
 export class Rating {
+    @ApiProperty({
+        description: "grade from 1 to 4",
+        example: "3",
+        type: Number
+    })
     rating: number;
+
+    @ApiProperty({
+        description: "the id of the user",
+        example: "1",
+        type: Number
+    })
     user: number;
 }
