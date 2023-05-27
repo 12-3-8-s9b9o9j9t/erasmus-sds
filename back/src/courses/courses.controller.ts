@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 import { Course } from './course.entity';
-import { CourseGet, CourseInput } from './course.input';
+import { CourseGet, CourseInput, Rating } from './course.input';
 import { ApiTags } from '@nestjs/swagger';
-import { Comment } from '../comments/comment.entity';
 import { CommentGet } from 'src/comments/comment.input';
+
 
 @ApiTags('courses')
 @Controller('courses')
@@ -50,6 +50,11 @@ export class CoursesController {
             input.semester,
             input.ECTScard,
             input.faculties);
+    }
+
+    @Post(':id/rate')
+    public async rate(@Param('id') id: number, @Body() rate: Rating): Promise<number> {
+        return this.service.rate(id, rate.rating, rate.user);
     }
 
     @Put(':id')

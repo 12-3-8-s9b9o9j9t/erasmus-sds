@@ -57,3 +57,8 @@ export class CourseGet {
     comments: Comment[];
     rating: number;
 }
+
+export class Rating {
+    rating: number;
+    user: number;
+}
