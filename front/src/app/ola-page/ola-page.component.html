@@ -11,31 +11,25 @@
 			<input matInput type="text" [formControl]="searchControl">
 		</mat-form-field>
 
-		<div class="flex flex-col items-start" *ngIf="loaded">
-			<div *ngFor="let course of filteredCourses" class="mt-10 flex flex-row">
-				<mat-card class="">
-
-					<mat-card-header>
-						<mat-card-title>
-							{{course.title}}
-						</mat-card-title>
-					</mat-card-header>
-
-					<mat-card-content>
-						<p>{{course.description}}</p>
-					</mat-card-content>
-
-				</mat-card>
-
-				<div class="my-auto pl-6">
-					<button mat-raised-button color="primary" class="h-14" (click)="selectCourse(course.id)">
-						<mat-icon>arrow_forward</mat-icon>
-					</button>
-				</div>
-
-			</div>
-
+		<div *ngIf="loaded" class="w-full">
+			<mat-grid-list cols="2" rowHeight="70px" *ngFor="let course of filteredCourses"
+				class="hover:cursor-pointer hover:text-base transition-all text-center" (click)="selectCourse(course.id)">
+				<mat-grid-tile class="">{{course.title}}</mat-grid-tile>
+				<mat-grid-tile>
+					<svg class="opacity-0 h-6" fill="#1a5fb4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+						<g id="SVGRepo_iconCarrier">
+							<path
+								d="M6.05 10.157l2.122-2.121L6.05 5.914 7.464 4.5 11 8.036 7.464 11.57 6.05 10.157zM8 0c4.418 0 8 3.59 8 8 0 4.418-3.59 8-8 8-4.418 0-8-3.59-8-8 0-4.418 3.59-8 8-8zm0 2C4.693 2 2 4.686 2 8c0 3.307 2.686 6 6 6 3.307 0 6-2.686 6-6 0-3.307-2.686-6-6-6z"
+								fill-rule="evenodd"></path>
+						</g>
+					</svg>
+				</mat-grid-tile>
+				<mat-divider></mat-divider>
+			</mat-grid-list>
 		</div>
+
 
 	</div>
 
@@ -56,32 +50,26 @@
 		</div>
 
 
-
-		<div class="flex flex-col pt-3">
-			<div *ngFor="let course of selectedCourses" class="mt-4 flex flex-row">
-
-				<div class="my-auto pr-6">
-					<button mat-raised-button color="primary" class="h-14" (click)="unselectCourse(course.id)">
-						<mat-icon class="rotate-180">arrow_forward</mat-icon>
-					</button>
-				</div>
-
-				<mat-card class="">
-
-					<mat-card-header>
-						<mat-card-title>
-							{{course.title}}
-						</mat-card-title>
-					</mat-card-header>
-
-					<mat-card-content>
-						<p>{{course.description}}</p>
-					</mat-card-content>
-
-				</mat-card>
-
-			</div>
+		<div class="w-full pt-4">
+			<mat-grid-list cols="2" rowHeight="70px" *ngFor="let course of selectedCourses"
+				class="hover:cursor-pointer hover:text-base transition-all text-center" (click)="unselectCourse(course.id)">
+				<mat-grid-tile>
+					<svg class="opacity-0 h-6 rotate-180" fill="#1a5fb4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+						<g id="SVGRepo_iconCarrier">
+							<path
+								d="M6.05 10.157l2.122-2.121L6.05 5.914 7.464 4.5 11 8.036 7.464 11.57 6.05 10.157zM8 0c4.418 0 8 3.59 8 8 0 4.418-3.59 8-8 8-4.418 0-8-3.59-8-8 0-4.418 3.59-8 8-8zm0 2C4.693 2 2 4.686 2 8c0 3.307 2.686 6 6 6 3.307 0 6-2.686 6-6 0-3.307-2.686-6-6-6z"
+								fill-rule="evenodd"></path>
+						</g>
+					</svg>
+				</mat-grid-tile>
+				<mat-grid-tile class="">{{course.title}}</mat-grid-tile>
+				<mat-divider></mat-divider>
+			</mat-grid-list>
+			<mat-divider *ngIf="selectedCourses.length > 0"></mat-divider>
 		</div>
+
 	</div>
 
 </div>

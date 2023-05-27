@@ -60,7 +60,8 @@ export class HomeComponent implements OnInit {
 
     for (let c of cs) {
       if (c.faculties === this.faculty) {
-        this.courses.push({ id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard, semester: c.semester })
+        const semester: string = c.semester === "summer" ? "⛱️" : "🌨️";
+        this.courses.push({ id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard, semester: semester, grade: "good" })
       }
     }
   }
@@ -79,6 +80,8 @@ export class Course {
   public ECTScard: string;
 
   public semester: string;
+
+  public grade?: string = "good";
 
   constructor(
     id: number,

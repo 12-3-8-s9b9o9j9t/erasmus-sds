@@ -22,6 +22,8 @@ export class CourseDetailComponent implements OnInit {
 
   public comments: Comment[] = [];
 
+  public courses_url: string = "";
+
   public commentForm: FormGroup = new FormGroup(
     {
       comment: new FormControl('', Validators.required),
@@ -76,7 +78,7 @@ export class CourseDetailComponent implements OnInit {
     // getting comments
     try {
       const coms = await this.apiService.get({ endpoint: "/courses/" + courseID + "/comments" });
-      
+
       this.comments = [];
       for (let com of coms) {
         this.comments.push({ name: com.username, content: com.text });
@@ -117,6 +119,11 @@ export class CourseDetailComponent implements OnInit {
     this.comments = this.comments.reverse();
 
     this.commentsLoaded = true;
+
+    const urlArray = this.route.snapshot.url.map(s => s.path);
+    if (urlArray.length >= 2) {
+      this.courses_url = "/" + urlArray[0] + "/" + urlArray[1];
+    }
   }
 }
 
