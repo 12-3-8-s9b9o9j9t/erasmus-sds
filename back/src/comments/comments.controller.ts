@@ -13,7 +13,12 @@ export class CommentsController {
 
     @Get()
     public async getAll(): Promise<CommentGet[]> {
-        return this.service.getAll();
+        const comments = await this.service.getAll();
+        return Promise.all(
+            comments.map(
+                async (comment) => await this.service.commentToCommentGet(comment)
+            )
+        );
     }
 
     @Get(':id')
@@ -22,7 +27,7 @@ export class CommentsController {
         if (comment === null) {
             throw new HttpException('Comment with id ' + id + ' not found', HttpStatus.NOT_FOUND);
         }
-        return comment;
+        return this.service.commentToCommentGet(comment);
     }
 
     @Post()

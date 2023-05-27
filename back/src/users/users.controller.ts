@@ -39,7 +39,8 @@ export class UsersController {
         try {
             return await this.service.create(
                 input.username,
-                input.password);
+                input.password,
+                input.isAdmin);
         } catch (error) {
             if (error instanceof UserAlreadyExistsError) {
                 throw new HttpException(error.message, HttpStatus.UNPROCESSABLE_ENTITY);

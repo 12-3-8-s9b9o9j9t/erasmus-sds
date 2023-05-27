@@ -5,7 +5,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/1/History%20of%20Architecture%201-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Fundamentals of Architectural Design with Elements of Ergonomics 1",
@@ -13,7 +15,9 @@ export const courseData = [
         ECTS: 2,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/1/Fundamentals%20of%20Architectural%20Design%20with%20Elements%20of%20Ergonomics%201-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Drawing, painting, sculpture 1",
@@ -21,7 +25,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/1/Drawing,%20Painting,%20Sculpture%201-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "History of Architecture 2",
@@ -29,7 +35,9 @@ export const courseData = [
         ECTS: 2,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/2/History%20of%20Architecture%202-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Fundamentals of Architectural Design with Elements of Ergonomics 2",
@@ -37,7 +45,9 @@ export const courseData = [
         ECTS: 2,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/2/Fundamentals%20of%20Architectural%20Design%20with%20Elements%20of%20Ergonomics%202-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Civil Engineering 1",
@@ -45,7 +55,9 @@ export const courseData = [
         ECTS: 2,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/2/Civil%20Engineering%201-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Fundamentals of Urban Design Project",
@@ -53,7 +65,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/3/Fundamentals%20of%20Urban%20Design%20(project)-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Civil Engineering 2",
@@ -61,7 +75,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/3/Civil%20Engineering%202-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Foundations of urban design",
@@ -69,7 +85,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/3/Architectural%20Design%20of%20Residential%20Buildings%201-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Architectural Design of Service Facilities",
@@ -77,7 +95,9 @@ export const courseData = [
         ECTS: 3,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Architektura%20_%20Architecture/stacjonarne/studia%20pierwszego%20stopnia/4/Architectural%20Design%20of%20Service%20Facilieies_1%20(project)-ang.pdf",
-        faculties: "Architecture"
+        faculties: "Architecture",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Mathematics",
@@ -85,7 +105,9 @@ export const courseData = [
         ECTS: 5,
         semester: "winter",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/1/Matematyka-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Physics",
@@ -93,7 +115,9 @@ export const courseData = [
         ECTS: 5,
         semester: "winter",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/1/Fizyka-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Engineering graphics",
@@ -101,7 +125,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/1/Grafika%20in%C5%BCynierska-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Organic chemistry",
@@ -109,7 +135,9 @@ export const courseData = [
         ECTS: 5,
         semester: "winter",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/3/Chemia%20organiczna-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Process thermodynamics",
@@ -117,7 +145,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/3/Termodynamika%20procesowa-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Physical chemistry",
@@ -125,7 +155,9 @@ export const courseData = [
         ECTS: 5,
         semester: "summer",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/4/Chemia%20fizyczna-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Organic technology",
@@ -133,7 +165,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/6/Technologia%20organiczna-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Fundamentals of electrochemical technology",
@@ -141,7 +175,9 @@ export const courseData = [
         ECTS: 5,
         semester: "summer",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/5/Podstawy%20technologii%20elektrochemicznej-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Engineering graphics",
@@ -149,7 +185,9 @@ export const courseData = [
         ECTS: 2,
         semester: "summer",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/2/przedmioty%20obieralne/Grafika%20in%C5%BCynierska%20(AutoCad%20podstawowy)-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Management and Marketing",
@@ -157,7 +195,9 @@ export const courseData = [
         ECTS: 3,
         semester: "summer",
         ECTScard: "https://put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20chemiczna%20i%20procesowa/stacjonarne/studia%20pierwszego%20stopnia/2/przedmioty%20obieralne/Przedmiot%20humanistyczny%20obieralny%20II%20(Zarz%C4%85dzanie%20i%20marketing)-ang.pdf",
-        faculties: "Chemical Engineering"
+        faculties: "Chemical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Structural Fire Engineering",
@@ -165,7 +205,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Advanced Construction Materials",
@@ -173,7 +215,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Engineering Surveying",
@@ -181,7 +225,9 @@ export const courseData = [
         ECTS: 2,
         semester: "winter",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Numerical Analysis",
@@ -189,7 +235,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Structural Dynamics",
@@ -197,7 +245,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Computational Mechanics",
@@ -205,7 +255,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Advanced Concrete Structures I",
@@ -213,7 +265,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Elasticity and Plasticity",
@@ -221,7 +275,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Metal Structures 1",
@@ -229,7 +285,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Design of Structures",
@@ -237,7 +295,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://erasmus-fte.put.poznan.pl/in_en/courses/_civil-engineering-ce/",
-        faculties: "Civil Engineering"
+        faculties: "Civil Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Technolgies of Software Development",
@@ -245,7 +305,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2021_2022/Informatyka/stacjonarne/studia%20drugiego%20stopnia/Software%20Engineering%20(In%C5%BCynieria%20oprogramowania)/1/Technologies%20of%20Software%20Development-ang.pdf",
-        faculties: "Computing and Telecommunications"
+        faculties: "Computing and Telecommunications",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Software Design and Modeling",
@@ -253,7 +315,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2021_2022/Informatyka/stacjonarne/studia%20drugiego%20stopnia/Software%20Engineering%20(In%C5%BCynieria%20oprogramowania)/1/Software%20Design%20and%20Modeling-ang.pdf",
-        faculties: "Computing and Telecommunications"
+        faculties: "Computing and Telecommunications",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Polish",
@@ -261,7 +325,9 @@ export const courseData = [
         ECTS: 2,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2021_2022/Informatyka/stacjonarne/studia%20drugiego%20stopnia/Software%20Engineering%20(In%C5%BCynieria%20oprogramowania)/1/Polish-ang.pdf",
-        faculties: "Computing and Telecommunications"
+        faculties: "Computing and Telecommunications",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "New trends in multimedia technologies",
@@ -269,7 +335,9 @@ export const courseData = [
         ECTS: 3,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2021_2022/Informatyka/stacjonarne/studia%20drugiego%20stopnia/Software%20Engineering%20(In%C5%BCynieria%20oprogramowania)/1/New%20Trends%20in%20Multimedia%20Technologies-ang.pdf",
-        faculties: "Computing and Telecommunications"
+        faculties: "Computing and Telecommunications",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Database Performance",
@@ -277,7 +345,9 @@ export const courseData = [
         ECTS: 5,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2021_2022/Informatyka/stacjonarne/studia%20drugiego%20stopnia/Software%20Engineering%20(In%C5%BCynieria%20oprogramowania)/1/Database%20Performance-ang.pdf",
-        faculties: "Computing and Telecommunications"
+        faculties: "Computing and Telecommunications",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Mathematics",
@@ -285,7 +355,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20zarz%C4%85dzania/stacjonarne/studia%20pierwszego%20stopnia/1/Matematyka-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Computer-aided Engineering Drawing",
@@ -293,7 +365,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20zarz%C4%85dzania/stacjonarne/studia%20pierwszego%20stopnia/1/Komputerowa%20grafika%20in%C5%BCynierska-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Managerial Accounting",
@@ -301,7 +375,9 @@ export const courseData = [
         ECTS: 3,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20zarz%C4%85dzania%20_%20Engineering%20Management/stacjonarne/studia%20drugiego%20stopnia/Managing%20Enterprise%20of%20the%20Future%20(Zarz%C4%85dzanie%20przedsi%C4%99biorstwem%20przysz%C5%82o%C5%9Bci)/1/Managerial%20Accounting-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Production Management",
@@ -309,7 +385,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20zarz%C4%85dzania/stacjonarne/studia%20pierwszego%20stopnia/6/Zarz%C4%85dzanie%20produkcj%C4%85-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Finances",
@@ -317,7 +395,9 @@ export const courseData = [
         ECTS: 5,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20zarz%C4%85dzania/stacjonarne/studia%20pierwszego%20stopnia/2/Finanse-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Microeconomis",
@@ -325,7 +405,9 @@ export const courseData = [
         ECTS: 5,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Inżynieria%20zarządzania%20_%20Engineering%20Management/stacjonarne/studia%20pierwszego%20stopnia/4/Human%20Resources%20Management-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Basics of management",
@@ -333,7 +415,9 @@ export const courseData = [
         ECTS: 5,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Inżynieria%20zarządzania%20_%20Engineering%20Management/stacjonarne/studia%20pierwszego%20stopnia/1/Basics%20of%20Management-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Advanced Functions of MS Office",
@@ -341,7 +425,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Inżynieria%20zarządzania%20_%20Engineering%20Management/stacjonarne/studia%20pierwszego%20stopnia/1/Advanced%20functions%20of%20MS%20Office-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Organizational Behavior",
@@ -349,7 +435,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Inżynieria%20zarządzania%20_%20Engineering%20Management/stacjonarne/studia%20pierwszego%20stopnia/1/Organizational%20behavior-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Computer-aided Engineering Drawing",
@@ -357,7 +445,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Inżynieria%20zarządzania%20_%20Engineering%20Management/stacjonarne/studia%20pierwszego%20stopnia/1/Computer-aided%20Engineering%20Drawing-ang.pdf",
-        faculties: "Engineering Management"
+        faculties: "Engineering Management",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Gas engines",
@@ -365,7 +455,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Renewable Energy Sources",
@@ -373,7 +465,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Heat and Power Technology",
@@ -381,7 +475,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Applied thermodynamics",
@@ -389,7 +485,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Generation of electric energy",
@@ -397,7 +495,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Gas turbines",
@@ -405,7 +505,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Energy management",
@@ -413,7 +515,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Programming in data analysis",
@@ -421,7 +525,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Environmental engineering",
@@ -429,7 +535,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Energy Efficient Buildings",
@@ -437,7 +545,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://isie.put.poznan.pl/en/node/3599",
-        faculties: "Environmental Engineering and Energy"
+        faculties: "Environmental Engineering and Energy",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Engineering drawing",
@@ -445,7 +555,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/1/Grafika%20in%C5%BCynierska-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Informatics",
@@ -453,7 +565,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/1/Informatyka-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Ceramics and glass",
@@ -461,7 +575,9 @@ export const courseData = [
         ECTS: 3,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/1/Podstawy%20nauki%20o%20materia%C5%82ach-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Electrotechnics",
@@ -469,7 +585,9 @@ export const courseData = [
         ECTS: 2,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/3/Elektrotechnika-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Materials welding technologies",
@@ -477,7 +595,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/5/Technologia%20%C5%82%C4%85czenia%20materia%C5%82%C3%B3w-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Mechanics",
@@ -485,7 +605,9 @@ export const courseData = [
         ECTS: 5,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/2/Mechanika-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Metallurgy and foundry",
@@ -493,7 +615,9 @@ export const courseData = [
         ECTS: 3,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/2/Metalurgia%20i%20odlewnictwo-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Corrosion and protection against corrosion",
@@ -501,7 +625,9 @@ export const courseData = [
         ECTS: 2,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/4/Korozja%20i%20ochrona%20przed%20korozj%C4%85-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Crystallography",
@@ -509,7 +635,9 @@ export const courseData = [
         ECTS: 3,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/4/Krystalografia-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Composites",
@@ -517,7 +645,9 @@ export const courseData = [
         ECTS: 3,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/In%C5%BCynieria%20materia%C5%82owa/stacjonarne/studia%20pierwszego%20stopnia/4/Kompozyty-ang.pdf",
-        faculties: "Materials Engineering"
+        faculties: "Materials Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Analytical Mechanics",
@@ -525,7 +655,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Computational Systems and Tool in Engineering",
@@ -533,7 +665,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Systems Engineering",
@@ -541,7 +675,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Production Management",
@@ -549,7 +685,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Machine vision in manufacturing technology",
@@ -557,7 +695,9 @@ export const courseData = [
         ECTS: 6,
         semester: "winter",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Elements of Optronics",
@@ -565,7 +705,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Noise Control in Industry",
@@ -573,7 +715,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "FEM Acoustical Modeling in COMSOL Multiphysics",
@@ -581,7 +725,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Hydraulics and Pneumatics",
@@ -589,7 +735,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Processing of polymeric materials",
@@ -597,7 +745,9 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://wim.put.poznan.pl/artykul/erasmus-incomming-subjects",
-        faculties: "Mechanical Engineering"
+        faculties: "Mechanical Engineering",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Mathematics I ",
@@ -605,7 +755,9 @@ export const courseData = [
         ECTS: 8,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/1/Mathematics%20I-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Micro and small enterprise management",
@@ -613,7 +765,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/1/przedmioty%20obieralne/Elective%20humanistic1%20%20Micro%20and%20small%20enterprise%20management-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Project management",
@@ -621,7 +775,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/1/przedmioty%20obieralne/Elective%20humanistic1%20%20Project%20management-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Control basics",
@@ -629,7 +785,9 @@ export const courseData = [
         ECTS: 4,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/3/Control%20basics%20in3sem-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Signals and Dynamic Systems",
@@ -637,7 +795,9 @@ export const courseData = [
         ECTS: 5,
         semester: "winter",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/3/Signals%20and%20dynamic%20systems-Lab-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Information engineering",
@@ -645,7 +805,9 @@ export const courseData = [
         ECTS: 4,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/2/Information%20engineering-Lab-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Circuit theory",
@@ -653,7 +815,9 @@ export const courseData = [
         ECTS: 7,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/2/Electrical%20engineering%20-%20Circuit%20theory-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Theoretical mechanics and mechanics of materials",
@@ -661,7 +825,9 @@ export const courseData = [
         ECTS: 5,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/2/Theoretical%20mechanics%20and%20mechanics%20of%20materials-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Robotics",
@@ -669,7 +835,9 @@ export const courseData = [
         ECTS: 2,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl/cards/2022_2023/Automatyka%20i%20robotyka%20_%20Automatic%20Control%20and%20Robotics/stacjonarne/studia%20pierwszego%20stopnia/4/Robotics%20in4sem-ang.pdf",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     },
     {
         name: "Term Design",
@@ -677,6 +845,8 @@ export const courseData = [
         ECTS: 6,
         semester: "summer",
         ECTScard: "https://www.put.poznan.pl",
-        faculties: "Automatic Control and Robotics"
+        faculties: "Automatic Control and Robotics",
+        ratings: [],
+        ratedBy: [],
     }
 ]

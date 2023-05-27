@@ -27,4 +27,10 @@ export class Course {
 
     @OneToMany(() => Comment, (comment) => comment.course)
     comments: Comment[];
+
+    @Column("int", { array: true })
+    ratings: number[];
+
+    @Column("int", { array: true })
+    ratedBy: number[];
 }

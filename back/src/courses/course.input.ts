@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { Comment } from "../comments/comment.entity";
 
 export class CourseInput {
     @ApiProperty({
@@ -43,4 +44,16 @@ export class CourseInput {
     })
     public faculties: string;
 
+}
+
+export class CourseGet {
+    id: number;
+    name: string;
+    description: string;
+    ECTS: number;
+    semester: string;
+    ECTScard: string;
+    faculties: string;
+    comments: Comment[];
+    rating: number;
 }
