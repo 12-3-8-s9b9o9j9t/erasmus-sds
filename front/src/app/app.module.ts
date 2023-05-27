@@ -21,6 +21,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
+import {MatListModule} from '@angular/material/list'; 
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FacultiesListPageComponent } from './faculties-list-page/faculties-list
     MatInputModule,
     MatGridListModule,
     MatSelectModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

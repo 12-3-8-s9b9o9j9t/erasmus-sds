@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: "faculties/:faculty", component: HomeComponent },
   { path: "faculties/:faculty/course/:id", component: CourseDetailComponent },
   { path: "ola", component: OlaPageComponent },
-  { path: "**", component: LoginComponent }
+  { path: "**", redirectTo: '/login' }
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ import { isLoggedIn } from '../services/storage.service';
 export class HeaderComponent implements OnInit {
 
   constructor(
+    public router: Router,
   ) {
   }
 
