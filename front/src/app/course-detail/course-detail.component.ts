@@ -45,7 +45,7 @@ export class CourseDetailComponent implements OnInit {
     this.router = router;
     this.route = route;
     this.apiService = api;
-    this.course = { title: "", id: 0, description: "", ECTSpoints: 0, ECTScard: "", semester: "", grade: "" };
+    this.course = { title: "", id: 0, description: "", ECTSpoints: 0, ECTScard: "", semester: "", grade: "", faculties: "" };
   }
 
   async sendComment(): Promise<void> {
@@ -110,7 +110,8 @@ export class CourseDetailComponent implements OnInit {
       ECTSpoints: co.ECTS,
       ECTScard: co.ECTScard,
       semester: co.semester,
-      grade: gradeMap[Math.round(co.rating) as keyof typeof gradeMap]
+      grade: gradeMap[Math.round(co.rating) as keyof typeof gradeMap],
+      faculties: co.faculties
     };
 
     this.courseLoaded = true;

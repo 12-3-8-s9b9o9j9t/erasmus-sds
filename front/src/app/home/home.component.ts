@@ -67,10 +67,11 @@ export class HomeComponent implements OnInit {
           id: c.id,
           title: c.name,
           description: c.description,
-          ECTSpoints: c.ECTS, 
-          ECTScard: c.ECTScard, 
-          semester: semester, 
-          grade: gradeMap[Math.round(c.rating) as keyof typeof gradeMap]
+          ECTSpoints: c.ECTS,
+          ECTScard: c.ECTScard,
+          semester: semester,
+          grade: gradeMap[Math.round(c.rating) as keyof typeof gradeMap],
+          faculties: c.faculties
         });
       }
     }
@@ -78,36 +79,20 @@ export class HomeComponent implements OnInit {
 
 }
 
-export class Course {
-  public id: number;
+export interface Course {
+  id: number;
 
-  public title: string;
+  title: string;
 
-  public description: string;
-
-  public ECTSpoints: number;
-
-  public ECTScard: string;
-
-  public semester: string;
-
-  public grade: string;
-
-  constructor(
-    id: number,
-    title: string,
-    description: string,
-    ECTSpoints: number,
-    ECTScard: string,
-    semester: string,
-    grade: string
-  ) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.ECTSpoints = ECTSpoints;
-    this.ECTScard = ECTScard;
-    this.semester = semester;
-    this.grade = grade;
-  }
+  description: string;
+  
+  ECTSpoints: number;
+  
+  ECTScard: string;
+  
+  semester: string;
+  
+  grade: string;
+  
+  faculties: string;
 }

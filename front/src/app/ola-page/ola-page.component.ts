@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiHelperService } from '../services/api-helper.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Course } from '../home/home.component';
 import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import autoTable, { RowInput } from 'jspdf-autotable';
-import { gradeMap } from '../constants/constants';
+import { Faculty, gradeMap } from '../constants/constants';
+import { faculties } from '../constants/constants';
 
 @Component({
   selector: 'app-ola-page',
@@ -16,7 +17,12 @@ export class OlaPageComponent implements OnInit {
 
   private readonly apiService: ApiHelperService;
 
-  public searchControl: FormControl = new FormControl("");
+  public searchFormGroup: FormGroup = new FormGroup({
+    search: new FormControl(''),
+    faculty: new FormControl('')
+  });
+
+  public faculties: Faculty[] = faculties;
 
   // all courses whithout search filter
   public allCourses: Course[] = [];
@@ -39,7 +45,7 @@ export class OlaPageComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.searchControl.valueChanges.subscribe((value) => {
+    this.searchFormGroup.valueChanges.subscribe((value) => {
       this.filteredCourses = this._filter(value);
     });
 
@@ -53,22 +59,26 @@ export class OlaPageComponent implements OnInit {
         ECTSpoints: c.ECTS,
         ECTScard: c.ECTScard,
         semester: c.semester,
-        grade: gradeMap[Math.round(c.rating) as keyof typeof gradeMap]
+        grade: gradeMap[Math.round(c.rating) as keyof typeof gradeMap],
+        faculties: c.faculties
       });
     }
     this.filteredCourses = this.allCourses;
 
-    console.log(this.filteredCourses.length);
-
     this.loaded = true;
   }
 
-  _filter(value: string): Course[] {
-    value = value.toLowerCase();
+  _filter(value: any): Course[] {
+
+    const search = value.search.toLowerCase();
+    const faculty = value.faculty;
+
+    console.log(faculty)
 
     return this.allCourses
-      .filter(course => course.title.toLowerCase().includes(value))
-      .filter(course => !this.selectedCourses.includes(course));
+      .filter(course => course.title.toLowerCase().includes(search))
+      .filter(course => !this.selectedCourses.includes(course))
+      .filter(course => course.faculties === faculty || faculty === "");
   }
 
   selectCourse(id: number): void {
@@ -106,7 +116,7 @@ export class OlaPageComponent implements OnInit {
 
     this.selectedCourses = this.selectedCourses.filter(c => c.id !== course.id);
 
-    this.filteredCourses = this._filter(this.searchControl.value);
+    //this.filteredCourses = this._filter(this.searchFormGroup);
 
     this.orderArrays();
   }
