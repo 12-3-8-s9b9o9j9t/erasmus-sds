@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Equal, Repository } from 'typeorm';
 import { Course } from './course.entity';
 import { CommentsService } from '../comments/comments.service';
-import { CommentGet } from 'src/comments/comment.input';
+import { CommentGet } from '../comments/comment.input';
 import { CourseGet } from './course.input';
 
 @Injectable()

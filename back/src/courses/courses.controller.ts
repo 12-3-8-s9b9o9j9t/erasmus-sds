@@ -3,7 +3,7 @@ import { CoursesService } from './courses.service';
 import { Course } from './course.entity';
 import { CourseGet, CourseInput, Rating } from './course.input';
 import { ApiTags } from '@nestjs/swagger';
-import { CommentGet } from 'src/comments/comment.input';
+import { CommentGet } from '../comments/comment.input';
 
 
 @ApiTags('courses')
