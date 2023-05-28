@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ApiHelperService } from "../services/api-helper.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { gradeMap } from '../constants/constants';
 
 @Component({
   selector: 'app-home',
@@ -61,41 +62,37 @@ export class HomeComponent implements OnInit {
     for (let c of cs) {
       if (c.faculties === this.faculty) {
         const semester: string = c.semester === "summer" ? "⛱️" : "🌨️";
-        this.courses.push({ id: c.id, title: c.name, description: c.description, ECTSpoints: c.ECTS, ECTScard: c.ECTScard, semester: semester, grade: "good" })
+
+        this.courses.push({
+          id: c.id,
+          title: c.name,
+          description: c.description,
+          ECTSpoints: c.ECTS,
+          ECTScard: c.ECTScard,
+          semester: semester,
+          grade: gradeMap[Math.round(c.rating) as keyof typeof gradeMap],
+          faculties: c.faculties
+        });
       }
     }
   }
 
 }
 
-export class Course {
-  public id: number;
+export interface Course {
+  id: number;
 
-  public title: string;
+  title: string;
 
-  public description: string;
-
-  public ECTSpoints: number;
-
-  public ECTScard: string;
-
-  public semester: string;
-
-  public grade?: string = "good";
-
-  constructor(
-    id: number,
-    title: string,
-    description: string,
-    ECTSpoints: number,
-    ECTScard: string,
-    semester: string
-  ) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.ECTSpoints = ECTSpoints;
-    this.ECTScard = ECTScard;
-    this.semester = semester;
-  }
+  description: string;
+  
+  ECTSpoints: number;
+  
+  ECTScard: string;
+  
+  semester: string;
+  
+  grade: string;
+  
+  faculties: string;
 }

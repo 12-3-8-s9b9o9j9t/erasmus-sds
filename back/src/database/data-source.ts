@@ -12,7 +12,7 @@ export async function seeding() {
         database: 'sdsDB',
         username: 'postgres',
         password: 'postgres',
-        host: 'localhost',
+        host: 'db',
         port: 5432,
         entities: [Course, Comment, User],
 

@@ -4,6 +4,7 @@ import { Course } from "../home/home.component";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ApiHelperService } from '../services/api-helper.service';
 import { getID, isLoggedIn } from '../services/storage.service';
+import { gradeMap } from '../constants/constants';
 
 @Component({
   selector: 'app-course-detail',
@@ -44,7 +45,7 @@ export class CourseDetailComponent implements OnInit {
     this.router = router;
     this.route = route;
     this.apiService = api;
-    this.course = { title: "", id: 0, description: "", ECTSpoints: 0, ECTScard: "", semester: "" };
+    this.course = { title: "", id: 0, description: "", ECTSpoints: 0, ECTScard: "", semester: "", grade: "", faculties: "" };
   }
 
   async sendComment(): Promise<void> {
@@ -102,7 +103,16 @@ export class CourseDetailComponent implements OnInit {
     }
 
 
-    this.course = { id: co.id, title: co.name, description: co.description, ECTSpoints: co.ECTS, ECTScard: co.ECTScard, semester: co.semester };
+    this.course = {
+      id: co.id,
+      title: co.name,
+      description: co.description,
+      ECTSpoints: co.ECTS,
+      ECTScard: co.ECTScard,
+      semester: co.semester,
+      grade: gradeMap[Math.round(co.rating) as keyof typeof gradeMap],
+      faculties: co.faculties
+    };
 
     this.courseLoaded = true;
 
