@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import { isLoggedIn } from '../services/storage.service';
+import { Router} from "@angular/router";
+import { isAdmin } from '../services/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +9,17 @@ import { isLoggedIn } from '../services/storage.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public admin: boolean = isAdmin();
+
   constructor(
     public router: Router,
   ) {
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      this.admin = isAdmin();
+    });
   }
 
 }

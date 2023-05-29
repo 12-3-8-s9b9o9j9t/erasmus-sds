@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatTabsModule } from '@angular/material/tabs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +21,12 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
-import {MatListModule} from '@angular/material/list'; 
+import {MatListModule} from '@angular/material/list';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AvatarComponent } from './avatar/avatar.component'; 
+import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+
 
 @NgModule({
   declarations: [
@@ -32,6 +37,8 @@ import {MatListModule} from '@angular/material/list';
     OlaPageComponent,
     LoginComponent,
     FacultiesListPageComponent,
+    AdminPageComponent,
+    AvatarComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,10 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     MatGridListModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatDialogModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

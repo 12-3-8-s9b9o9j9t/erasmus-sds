@@ -2,6 +2,7 @@ const NAME_KEY: string = "NAME";
 const ID_KEY: string = "ID";
 const LOGGED_KEY: string = "LOGGED";
 const TOKEN_KEY: string = "TOKEN";
+const ADMIN_KEY: string = "ADMIN";
 
 export function saveName(name: string): void {
   sessionStorage.setItem(NAME_KEY, name);
@@ -55,4 +56,16 @@ export function getToken(): string {
 
 export function saveToken(token: string): void {
   sessionStorage.setItem(TOKEN_KEY, token);
+}
+
+export function isAdmin(): boolean {
+  let admin: string | null = sessionStorage.getItem(ADMIN_KEY);
+  if (admin == null) {
+    return false;
+  }
+  return admin === "true";
+}
+
+export function saveAdmin(admin: boolean): void {
+  sessionStorage.setItem(ADMIN_KEY, admin.toString());
 }
