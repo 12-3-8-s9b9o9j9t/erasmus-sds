@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
-interface Faculty {
-  name: string,
-  link: string
-}
+import { faculties, Faculty } from '../constants/constants';
 
 @Component({
   selector: 'app-faculties-list-page',
@@ -13,28 +9,14 @@ interface Faculty {
 })
 export class FacultiesListPageComponent {
 
-  public faculties: Faculty[] = [
-    { name: "Computing", link: "faculties/computing" },
-    { name: "Architecture", link: "faculties/architecture" },
-    { name: "Mechanical Engineering", link: "faculties/mechanicalengineering" },
-    { name: "Chemical Technology", link: "faculties/chemicaltechnology" },
-    { name: "Civil Engineering", link: "faculties/civilengineering" },
-    { name: "Engineering Management", link: "faculties/engineeringmanagement" },
-    { name: "Environmental Engineering and Energy", link: "faculties/environmentalengineeringandenergy" },
-    { name: "Materials Engineering", link: "faculties/materialsengineering" }, 
-    { name: "Automatic Control and Robotics", link: "faculties/automaticcontrolandrobotics" },
-  ]
-
   private readonly router: Router;
+
+  public faculties: Faculty[] = faculties;
 
   constructor(
     router: Router,
   ) {
     this.router = router;
-  }
-
-  goToFaculty(link: string) {
-    this.router.navigateByUrl(link);
   }
 
 }

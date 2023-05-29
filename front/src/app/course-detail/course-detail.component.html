@@ -1,5 +1,12 @@
 <div class="flex flex-col items-center w-full mt-10">
   <div class="flex flex-col w-3/5">
+    <div class="flex justify-start pb-5">
+      <nav>
+        <a [routerLink]="courses_url">
+          <button mat-stroked-button>Go back to courses</button>
+        </a>
+      </nav>
+    </div>
     <div class="grid grid-cols-2 w-full" *ngIf="courseLoaded">
       <div class="flex items-start text-3xl">{{course.title}}</div>
       <div class="flex items-end justify-end text-lg">{{course.ECTSpoints}} ECTS points</div>
@@ -9,7 +16,7 @@
     <div class="text-lg mt-10 text-justify">
       {{course.description}}
     </div>
-    
+
     <nav class="text-base mt-10 text-left underline text-blue-500">
       <a [href]="course.ECTScard" target="_blank" rel="noopener noreferrer">Link to course card</a>
     </nav>

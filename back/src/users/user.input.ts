@@ -15,4 +15,11 @@ export class UserInput {
     })
     public password: string;
 
+    @ApiProperty({
+        description: 'The user is admin',
+        example: false,
+        type: Boolean,
+    })
+    public isAdmin: boolean;
+
 }

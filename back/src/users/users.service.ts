@@ -12,7 +12,7 @@ const PostgresErrorCode = {
 
 export class UserAlreadyExistsError extends Error {
     constructor(username: string) {
-        super(`User with username ${username} already exists`);
+        super(`Username ${username} not available`);
     }
 }
 
@@ -36,10 +36,10 @@ export class UsersService {
         return result;
     }
 
-    async create(username: string, pass: string): Promise<Partial<User>> {
+    async create(username: string, pass: string, isAdmin: boolean): Promise<Partial<User>> {
         try {
             const hash = await bcrypt.hash(pass, saltRounds);
-            const user = this.repository.create({ username, password: hash });
+            const user = this.repository.create({ username, password: hash , isAdmin});
             const {password, ...result} = await this.repository.save(user);
             return result;
         } catch (error) {

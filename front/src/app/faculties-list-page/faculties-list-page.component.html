@@ -2,13 +2,15 @@
     <h1>Choose a faculty :</h1>
 </div>
 
-<div class="">
-    <mat-card *ngFor="let faculty of faculties" (click)="goToFaculty(faculty.link)"
-        class="hover:cursor-pointer max-w-2xl mt-10 mx-auto bg-gray-100">
-        <mat-card-header class="text-center justify-center">
-            <mat-card-title>
-                {{faculty.name}}
-            </mat-card-title>
-        </mat-card-header>
-    </mat-card>
+<div class="w-1/3 mx-auto">
+    <nav>
+        <a *ngFor="let faculty of faculties" [routerLink]="faculty.link">
+            <mat-grid-list cols="1" rowHeight="70px" class="hover:bg-gray-200 hover:text-lg text-base transition-all">
+                <mat-grid-tile class="text-center right-0">
+                    {{faculty.name}}
+                </mat-grid-tile>
+                <mat-divider></mat-divider>
+            </mat-grid-list>
+        </a>
+    </nav>
 </div>

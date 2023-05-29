@@ -7,12 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
 
 const routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", redirectTo: '/login', pathMatch: 'full' },
+  { path: "login", component: LoginComponent },
   { path: "faculties", component: FacultiesListPageComponent },
   { path: "faculties/:faculty", component: HomeComponent },
   { path: "faculties/:faculty/course/:id", component: CourseDetailComponent },
   { path: "ola", component: OlaPageComponent },
-  { path: "**", component: LoginComponent }
+  { path: "**", redirectTo: '/login' }
 ];
 
 @NgModule({

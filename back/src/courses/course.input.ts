@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { Comment } from "../comments/comment.entity";
 
 export class CourseInput {
     @ApiProperty({
@@ -43,4 +44,32 @@ export class CourseInput {
     })
     public faculties: string;
 
+}
+
+export class CourseGet {
+    id: number;
+    name: string;
+    description: string;
+    ECTS: number;
+    semester: string;
+    ECTScard: string;
+    faculties: string;
+    comments: Comment[];
+    rating: number;
+}
+
+export class Rating {
+    @ApiProperty({
+        description: "grade from 1 to 4",
+        example: "3",
+        type: Number
+    })
+    rating: number;
+
+    @ApiProperty({
+        description: "the id of the user",
+        example: "1",
+        type: Number
+    })
+    user: number;
 }

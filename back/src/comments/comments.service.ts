@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Equal, Repository } from 'typeorm';
 import { Comment } from './comment.entity';
 import { CommentGet } from './comment.input';
-import { UsersService } from 'src/users/users.service';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class CommentsService {
@@ -13,19 +13,16 @@ export class CommentsService {
         private userService: UsersService,
     ) { }
 
-    async getAll(): Promise<CommentGet[]> {
-        const comments =  await this.repository.find();
-        return Promise.all(comments.map(async (comment) => await this.commentToCommentGet(comment)));
+    async getAll(): Promise<Comment[]> {
+       return await this.repository.find();
     }
     
-    async getAllByCourse(courseId: number): Promise<CommentGet[]> {
-        const comments =  await this.repository.find({ where: { courseId: Equal(courseId) } });
-        return Promise.all(comments.map(async (comment) => await this.commentToCommentGet(comment)));
+    async getAllByCourse(courseId: number): Promise<Comment[]> {
+        return await this.repository.find({ where: { courseId: Equal(courseId) } });
     }
 
-    async get(id: number): Promise<CommentGet> {
-        const comment =  await this.repository.findOne({ where: { id: Equal(id) } });
-        return await this.commentToCommentGet(comment);
+    async get(id: number): Promise<Comment> {
+        return await this.repository.findOne({ where: { id: Equal(id) } });
     }
 
     async create(courseId: number, userId: number, text: string, date: Date): Promise<Comment> {

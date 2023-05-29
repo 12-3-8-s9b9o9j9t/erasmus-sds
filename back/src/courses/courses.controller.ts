@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 import { Course } from './course.entity';
-import { CourseInput } from './course.input';
+import { CourseGet, CourseInput, Rating } from './course.input';
 import { ApiTags } from '@nestjs/swagger';
-import { Comment } from '../comments/comment.entity';
-import { CommentGet } from 'src/comments/comment.input';
+import { CommentGet } from '../comments/comment.input';
+
 
 @ApiTags('courses')
 @Controller('courses')
@@ -14,17 +14,22 @@ export class CoursesController {
     ) {}
 
     @Get()
-    public async getAll(): Promise<Course[]> {
-        return this.service.getAll();
+    public async getAll(): Promise<CourseGet[]> {
+        const courses = await this.service.getAll();
+        return Promise.all(
+            courses.map(
+                async (course) => await this.service.courseToCourseGet(course)
+            )
+        );
     }
 
     @Get(':id')
-    public async get(@Param('id') id: number): Promise<Course> {
+    public async get(@Param('id') id: number): Promise<CourseGet> {
         const course = await this.service.get(id);
         if (course === null) {
             throw new HttpException('Course with id ' + id + ' not found', HttpStatus.NOT_FOUND);
         }
-        return course;
+        return this.service.courseToCourseGet(course);
     }
 
     @Get(':id/comments')
@@ -45,6 +50,11 @@ export class CoursesController {
             input.semester,
             input.ECTScard,
             input.faculties);
+    }
+
+    @Post(':id/rate')
+    public async rate(@Param('id') id: number, @Body() rate: Rating): Promise<number> {
+        return this.service.rate(id, rate.rating, rate.user);
     }
 
     @Put(':id')
