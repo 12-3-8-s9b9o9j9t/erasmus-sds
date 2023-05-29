@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" *ngIf="router.url !== '/login'">
-  <img src="../../assets/europe_flag.jpg" alt="europe_flag" class="h-14 mr-7 hover:cursor-pointer" [routerLink]="['/']">
+  <img src="../../assets/europe_flag.jpg" alt="europe_flag" class="h-14 mr-7 hover:cursor-pointer" [routerLink]="['/login']">
   <nav>
-    <a [routerLink]="['/']" routerLinkActive="active">
+    <a [routerLink]="['/login']" routerLinkActive="active">
       <span class="pr-7">Erasmus SDS application</span>
     </a>
     |
@@ -9,8 +9,12 @@
       <span class="px-7">Faculties</span>
     </a>
     |
-    <a [routerLink]="['ola']"routerLinkActive="active">
+    <a [routerLink]="['ola']" routerLinkActive="active">
       <span class="px-7">Generate my OLA</span>
+    </a>
+    <span *ngIf="admin">|</span>
+    <a [routerLink]="['admin']" routerLinkActive="active" *ngIf="admin">
+      <span class="px-7">Admin panel</span>
     </a>
   </nav>
 

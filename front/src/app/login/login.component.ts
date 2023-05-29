@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { getToken, loggedIn, notLoggedIn, saveID, saveToken } from '../services/storage.service';
+import { getToken, loggedIn, notLoggedIn, saveAdmin, saveID, saveToken } from '../services/storage.service';
 import { ApiHelperService } from '../services/api-helper.service';
 import { saveName } from '../services/storage.service';
 
@@ -68,8 +68,9 @@ export class LoginComponent {
 			saveName(username);
 			saveID(+user.id);
 			saveToken(token.access_token);
+			saveAdmin(user.isAdmin);
 			
-			this.router.navigateByUrl("faculties");
+			await this.router.navigateByUrl("faculties");
 		}
 		catch (e) {
 			console.error("Login error :", e);
@@ -95,6 +96,7 @@ export class LoginComponent {
 		try {
 			const response = await this.apiService.post({ endpoint: "/users", data: payload });
 			saveID(response.id);
+			saveAdmin(response.isAdmin);
 
 			const token: { access_token: string } = await this.apiService.post({ endpoint: "/auth/login", data: payload });
 
@@ -114,6 +116,7 @@ export class LoginComponent {
 		saveName("");
 		saveToken("");
 		notLoggedIn();
+		saveAdmin(false);
 
 		this.router.navigateByUrl("faculties");
 	}

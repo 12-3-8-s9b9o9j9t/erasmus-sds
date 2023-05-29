@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { isAdmin } from '../services/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,17 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
+  public admin: boolean = isAdmin();
+
   constructor(
     public router: Router,
   ) {
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      this.admin = isAdmin();
+    });
   }
 
   moveToProfile(): void {

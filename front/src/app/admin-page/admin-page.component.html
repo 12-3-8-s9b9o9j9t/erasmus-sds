@@ -1,0 +1,58 @@
+<div class="w-2/3 mx-auto pt-10">
+    <mat-tab-group mat-stretch-tabs>
+
+        <!-- manage user tab -->
+        <mat-tab label="Manage users">
+
+            <div class="w-full flex justify-center my-5">
+                <button mat-stroked-button class="text-blue-600 mx-auto" (click)="openDialogAddUser()">
+                    Add a user
+                </button>
+            </div>
+
+            <mat-card *ngFor="let user of users" class="my-5 w-2/5 mx-auto">
+                <mat-card-header>
+                    <div class="flex items-center">
+                        <app-avatar [name]="user.username" class="-ml-6"></app-avatar>
+                        <div class="ml-3 pt-5">
+                            <mat-card-title>{{user.username}} <span *ngIf="myUserId == user.id">(you)</span></mat-card-title>
+                            <mat-card-subtitle>Is admin: {{user.isAdmin}}</mat-card-subtitle>
+                        </div>
+
+                        <div class="flex justify-end w-80" *ngIf="myUserId != user.id">
+                            <button mat-stroked-button color="warn" (click)="deleteUser(user.id)">
+                                Delete
+                            </button>
+                        </div>
+
+                    </div>
+                </mat-card-header>
+            </mat-card>
+        </mat-tab>
+
+
+        <!-- manage courses tab -->
+        <mat-tab label="Manage courses">
+            <div class="w-full flex justify-center my-5">
+                <button mat-stroked-button class="text-blue-600 mx-auto" (click)="openDialogAddCourse()">
+                    Add a course
+                </button>
+            </div>
+
+            <mat-card *ngFor="let course of courses" class="my-5 w-2/5 mx-auto">
+                <mat-card-header>
+
+                    <mat-card-title>{{course.title}}</mat-card-title>
+                    <mat-card-subtitle>{{course.faculties}}</mat-card-subtitle>
+
+                    <div class="flex justify-end w-80 h-10">
+                        <button mat-stroked-button color="warn" (click)="deleteCourse(course.id)">
+                            Delete
+                        </button>
+                    </div>
+
+                </mat-card-header>
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
+</div>

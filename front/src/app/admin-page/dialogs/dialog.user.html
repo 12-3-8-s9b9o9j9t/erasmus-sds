@@ -1,0 +1,22 @@
+<h1 mat-dialog-title class="text-center">Add a user</h1>
+<div mat-dialog-content class="h-40 w-72">
+
+    <mat-form-field class="ml-8">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" [(ngModel)]="user.username">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="ml-8">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="user.password">
+    </mat-form-field>
+    
+    <br>
+
+    <mat-checkbox [(ngModel)]="user.isAdmin" class="ml-8 mt-2">Admin</mat-checkbox>
+</div>
+<div mat-dialog-actions class="flex justify-center">
+    <button mat-button [mat-dialog-close]="user">Add user</button>
+</div>
