@@ -46,6 +46,18 @@ export class ApiHelperService {
     return this.request({ endpoint, method: 'PUT', data, queryParams });
   }
 
+  public patch({
+    endpoint,
+    data = {},
+    queryParams = {},
+  }: {
+    endpoint: string;
+    data?: any;
+    queryParams?: any;
+  }): Promise<any> {
+    return this.request({ endpoint, method: 'PATCH', data, queryParams });
+  }
+
   public delete({
     endpoint,
     data = {},
@@ -84,6 +96,11 @@ export class ApiHelperService {
       req = this.http.get(url, { ...requestOptions, observe: 'response' });
     } else if (methodWanted === 'post') {
       req = this.http.post(url, data, {
+        ...requestOptions,
+        observe: 'response',
+      });
+    } else if (methodWanted === 'patch') {
+      req = this.http.patch(url, data, {
         ...requestOptions,
         observe: 'response',
       });

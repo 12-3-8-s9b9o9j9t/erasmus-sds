@@ -1,0 +1,24 @@
+<div class="profile">
+    <form class="form" [formGroup]="formGroup" (submit)="updateProfile()">
+        <p class="title">Profile</p>
+
+        <div class="username">
+            <p class="sub-title">Username</p>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput [formControl]="nameControl">
+            </mat-form-field>
+        </div>
+        <div class="password">
+            <p class="sub-title">Password</p>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [formControl]="passwordControl" type="password">
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button class="button-update" [disabled]="formGroup.invalid" color="primary" appeareace="fill" type="submit">
+            Update
+        </button>
+    </form>
+</div>

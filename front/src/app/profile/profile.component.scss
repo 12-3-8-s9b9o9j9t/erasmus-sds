@@ -1,0 +1,29 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            font-size: 250%;
+            color: #747474;
+            margin-bottom: 2.3rem;
+        }
+
+        .sub-title {
+            text-align: left;
+        }
+
+        mat-form-field {
+            width: 100%;
+            max-width: 20rem;
+        }
+    }
+}

@@ -5,6 +5,7 @@ import {CourseDetailComponent} from "./course-detail/course-detail.component";
 import {OlaPageComponent} from "./ola-page/ola-page.component";
 import { LoginComponent } from './login/login.component';
 import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: "", redirectTo: '/login', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: "faculties/:faculty", component: HomeComponent },
   { path: "faculties/:faculty/course/:id", component: CourseDetailComponent },
   { path: "ola", component: OlaPageComponent },
-  { path: "**", redirectTo: '/login' }
+  { path: "profile", component: ProfileComponent },
+  { path: "**", redirectTo: '/login' },
 ];
 
 @NgModule({

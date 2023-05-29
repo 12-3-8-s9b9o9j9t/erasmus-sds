@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import { isLoggedIn } from '../services/storage.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -15,6 +14,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  moveToProfile(): void {
+    this.router.navigateByUrl('/profile');
   }
 
 }

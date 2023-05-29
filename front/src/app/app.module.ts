@@ -21,7 +21,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
-import {MatListModule} from '@angular/material/list'; 
+import {MatListModule} from '@angular/material/list';
+import { ProfileComponent } from './profile/profile.component'; 
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {MatListModule} from '@angular/material/list';
     OlaPageComponent,
     LoginComponent,
     FacultiesListPageComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
