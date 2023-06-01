@@ -17,9 +17,20 @@
       {{course.description}}
     </div>
 
-    <nav class="text-base mt-10 text-left underline text-blue-500">
-      <a [href]="course.ECTScard" target="_blank" rel="noopener noreferrer">Link to course card</a>
-    </nav>
+    <div class="flex flex-row mt-10 flex-shrink-0">
+      <nav class="text-base text-left underline text-blue-500 w-1/2">
+        <a [href]="course.ECTScard" target="_blank" rel="noopener noreferrer">Link to course card</a>
+      </nav>
+      <div class="w-1/2 flex justify-end" *ngIf="isConnected">
+        <div class="flex flex-row text-2xl gap-2 fixed">
+          <span class="hover:cursor-pointer hover:text-3xl transition-all" (click)="voteCourse(1)">{{gradeMap[1]}}</span>
+          <span class="hover:cursor-pointer hover:text-3xl transition-all" (click)="voteCourse(2)">{{gradeMap[2]}}</span>
+          <span class="hover:cursor-pointer hover:text-3xl transition-all" (click)="voteCourse(3)">{{gradeMap[3]}}</span>
+          <span class="hover:cursor-pointer hover:text-3xl transition-all" (click)="voteCourse(4)">{{gradeMap[4]}}</span>
+        </div>
+      </div>
+    </div>
+
 
     <div class="mt-3 content-center">
       <hr class="border-gray-600 border-2 mt-5">

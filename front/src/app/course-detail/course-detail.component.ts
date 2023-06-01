@@ -37,6 +37,8 @@ export class CourseDetailComponent implements OnInit {
 
   public isConnected: boolean = isLoggedIn();
 
+  public gradeMap = gradeMap;
+
   constructor(
     route: ActivatedRoute,
     router: Router,
@@ -88,6 +90,19 @@ export class CourseDetailComponent implements OnInit {
       this.comments = this.comments.reverse();
     } catch (e) {
       console.error("Error when getting comments :", e)
+    }
+  }
+
+  async voteCourse(rating: number): Promise<void> {
+    try {
+      const payload: any = {
+        rating: rating,
+        user: getID()
+      }
+      await this.apiService.post({ endpoint: "/courses/" + this.course.id + "/rate", data: payload });
+    }
+    catch(e) {
+      console.error("Error when sending grade :", e);
     }
   }
 

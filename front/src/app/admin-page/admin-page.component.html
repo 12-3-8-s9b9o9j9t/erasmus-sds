@@ -12,20 +12,18 @@
 
             <mat-card *ngFor="let user of users" class="my-5 w-2/5 mx-auto">
                 <mat-card-header>
-                    <div class="flex items-center">
-                        <app-avatar [name]="user.username" class="-ml-6"></app-avatar>
+                        <app-avatar [name]="user.username" class="-ml-6 pt-4"></app-avatar>
                         <div class="ml-3 pt-5">
                             <mat-card-title>{{user.username}} <span *ngIf="myUserId == user.id">(you)</span></mat-card-title>
                             <mat-card-subtitle>Is admin: {{user.isAdmin}}</mat-card-subtitle>
                         </div>
 
-                        <div class="flex justify-end w-80" *ngIf="myUserId != user.id">
+                        <div class="flex justify-end w-80 h-14 pt-5" *ngIf="myUserId != user.id">
                             <button mat-stroked-button color="warn" (click)="deleteUser(user.id)">
                                 Delete
                             </button>
                         </div>
 
-                    </div>
                 </mat-card-header>
             </mat-card>
         </mat-tab>

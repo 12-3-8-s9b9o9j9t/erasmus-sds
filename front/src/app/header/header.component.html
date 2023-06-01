@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" *ngIf="router.url !== '/login'">
   <img src="../../assets/europe_flag.jpg" alt="europe_flag" class="h-14 mr-7 hover:cursor-pointer" [routerLink]="['/login']">
-  <nav>
+  <nav class="w-full text-center">
     <a [routerLink]="['/login']" routerLinkActive="active">
       <span class="pr-7">Erasmus SDS application</span>
     </a>
@@ -18,13 +18,13 @@
     </a>
   </nav>
 
-  <div class="flex justify-end w-full pr-7">
+  <div class="flex justify-end items-center pr-7 w-fit">
     <nav class="text-sm">
       <a class="text-purple-100 underline" href="https://www.put.poznan.pl/">
         PUT website
       </a>
+      <a [routerLink]="['profile']" class="ml-7 mt-2"><mat-icon>account_circle</mat-icon></a>
     </nav>
-    <button mat-button (click)="moveToProfile()"><mat-icon>account_circle</mat-icon></button>
   </div>
 
 </mat-toolbar>
