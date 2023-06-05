@@ -69,3 +69,8 @@ export function isAdmin(): boolean {
 export function saveAdmin(admin: boolean): void {
   sessionStorage.setItem(ADMIN_KEY, admin.toString());
 }
+
+export function clearSessionStorage(): void {
+  sessionStorage.clear();
+}
+

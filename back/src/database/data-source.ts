@@ -4,6 +4,7 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 import { SeederOptions, runSeeder, runSeeders } from 'typeorm-extension';
 import { User } from '../users/user.entity';
 import CourseSeeder from './seeds/course.seeder';
+import UserSeeder from './seeds/user.seeder';
 
 
 export async function seeding() {
@@ -23,5 +24,6 @@ export async function seeding() {
     await dataSource.initialize();
 
     await runSeeder(dataSource, CourseSeeder);
+    await runSeeder(dataSource, UserSeeder);
 };
 

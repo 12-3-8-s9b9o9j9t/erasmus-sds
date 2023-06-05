@@ -4,7 +4,7 @@ import { User } from './user.entity';
 import { Equal, Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 
-const saltRounds = 10;
+export const saltRounds = 10;
 
 const PostgresErrorCode = {
     UniqueViolation: '23505',

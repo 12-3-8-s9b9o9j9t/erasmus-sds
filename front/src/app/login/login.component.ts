@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { getToken, loggedIn, notLoggedIn, saveAdmin, saveID, saveToken } from '../services/storage.service';
+import { clearSessionStorage, getToken, loggedIn, notLoggedIn, saveAdmin, saveID, saveToken } from '../services/storage.service';
 import { ApiHelperService } from '../services/api-helper.service';
 import { saveName } from '../services/storage.service';
 
@@ -10,7 +10,7 @@ import { saveName } from '../services/storage.service';
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
 	private readonly router: Router;
 
@@ -43,6 +43,7 @@ export class LoginComponent {
 		this.router = router;
 		this.apiService = apiService;
 	}
+	
 
 	async login(): Promise<void> {
 		if (this.loginFormGroup.invalid) {
@@ -120,4 +121,9 @@ export class LoginComponent {
 
 		this.router.navigateByUrl("faculties");
 	}
+
+	ngOnInit(): void {
+		clearSessionStorage();
+	}
+
 }
