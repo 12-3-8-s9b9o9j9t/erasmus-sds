@@ -59,7 +59,7 @@ export class AdminPageComponent implements OnInit {
       try {
         await this.api.post({ endpoint: "/users", data: payload });
         await this.getUsers();
-        alert("A new user has been added !");
+        setTimeout(() => alert("A new user has been added !"), 50);
       }
       catch (e) {
         console.error("Error when adding a user :", e);
@@ -90,7 +90,7 @@ export class AdminPageComponent implements OnInit {
       try {
         await this.api.post({ endpoint: "/courses", data: courseToAdd });
         await this.getCourses();
-        alert("A new course has been added !");
+        setTimeout(() => alert("A new course has been added !"), 50);
       }
       catch(e) {
         console.error("Error when adding course :", e);
@@ -119,13 +119,13 @@ export class AdminPageComponent implements OnInit {
 
       try {
         await this.api.delete({ endpoint: "/users/" + id });
+        await this.getUsers();
+        setTimeout(() => alert("User has been removed !"), 50);
       }
       catch (e) {
         console.error("error when deleting user :", e);
       }
   
-      await this.getUsers();
-
     });
   }
 
@@ -140,12 +140,12 @@ export class AdminPageComponent implements OnInit {
 
       try {
         await this.api.delete({ endpoint: "/courses/" + id });
+        await this.getCourses();
+        setTimeout(() => alert("Course has been removed !"), 50);
       }
       catch (e) {
         console.error("error when deleting course :", e);
-      }
-  
-      await this.getCourses();
+      }      
 
     });
   }
