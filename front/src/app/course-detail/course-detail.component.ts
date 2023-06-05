@@ -100,6 +100,7 @@ export class CourseDetailComponent implements OnInit {
         user: getID()
       }
       await this.apiService.post({ endpoint: "/courses/" + this.course.id + "/rate", data: payload });
+      alert("Your vote has been counted");
     }
     catch(e) {
       console.error("Error when sending grade :", e);

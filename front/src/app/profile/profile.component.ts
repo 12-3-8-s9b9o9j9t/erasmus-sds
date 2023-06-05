@@ -24,16 +24,15 @@ export class ProfileComponent implements OnInit {
     this.nameControl.setValue(getName());
   }
 
-  updateProfile(): void {
+  async updateProfile(): Promise<void> {
     try {
-      console.log("Updating profile")
-      this.api.patch({ endpoint: '/users/'+getID(), data: {username: this.nameControl.value, password: this.passwordControl.value}})
+      await this.api.patch({ endpoint: '/users/'+getID(), data: {username: this.nameControl.value, password: this.passwordControl.value}})
       if (this.nameControl.value !== null) {
         saveName(this.nameControl.value);
       }
+      alert("Your profile has been updated !");
     } catch (error) {
-      console.log("Error updating profile")
-      //console.error(error);
+      console.error("Error when updating profile", error);
     }
     
   }

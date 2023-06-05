@@ -58,12 +58,12 @@ export class AdminPageComponent implements OnInit {
 
       try {
         await this.api.post({ endpoint: "/users", data: payload });
+        await this.getUsers();
+        alert("A new user has been added !");
       }
       catch (e) {
         console.error("Error when adding a user :", e);
       }
-
-      await this.getUsers();
 
     });
   }
@@ -84,17 +84,17 @@ export class AdminPageComponent implements OnInit {
         ECTS: result.ECTSpoints,
         ECTScard: "",
         semester: result.semester,
-        faculties: "" 
+        faculties: result.faculties 
       };
 
       try {
         await this.api.post({ endpoint: "/courses", data: courseToAdd });
+        await this.getCourses();
+        alert("A new course has been added !");
       }
       catch(e) {
         console.error("Error when adding course :", e);
       }
-
-      await this.getCourses();
 
     });
   }
