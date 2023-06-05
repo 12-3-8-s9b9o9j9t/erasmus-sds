@@ -25,6 +25,8 @@
                     <input matInput type="password" formControlName="password">
                 </mat-form-field>
 
+                <p class="text-red-600" *ngIf="errorMessage">{{errorMessage}}</p>
+
                 <br>
 
                 <button mat-raised-button type="submit" [disabled]="loginFormGroup.invalid">Login</button>

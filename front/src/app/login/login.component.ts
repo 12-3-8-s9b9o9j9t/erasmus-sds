@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit{
 		"Chemical Technology"
 	]
 
+	public errorMessage: string = "";
+
 
 
 	constructor(
@@ -75,6 +77,7 @@ export class LoginComponent implements OnInit{
 		}
 		catch (e) {
 			console.error("Login error :", e);
+			this.errorMessage = "Wrong user name or password.";
 		}
 	}
 
