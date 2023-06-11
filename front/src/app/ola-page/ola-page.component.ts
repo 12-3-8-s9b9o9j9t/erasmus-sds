@@ -7,6 +7,7 @@ import jsPDF from 'jspdf';
 import autoTable, { RowInput } from 'jspdf-autotable';
 import { Faculty, gradeMap } from '../constants/constants';
 import { faculties } from '../constants/constants';
+import { getName } from '../services/storage.service';
 
 @Component({
   selector: 'app-ola-page',
@@ -129,6 +130,19 @@ export class OlaPageComponent implements OnInit {
   generatePDF(): void {
     const doc = new jsPDF();
 
+    let img = new Image();
+    img.src = 'assets/europe_flag.jpg';
+    const h = 50;
+    doc.addImage(img, 'jpg', 15, 10, 16 * h / 9 - 20, h); 
+
+    img.src = 'assets/put_logo.png';
+    doc.addImage(img, 'png', 140, 10, h, h);
+
+    doc.text("Poznan University of Technology", 15, 70);
+    doc.text("Name of the student : " + getName(), 15, 80);
+
+
+    // table for the selected courses
     let tableBody: RowInput[] = [];
 
     for (let course of this.selectedCourses) {
@@ -139,6 +153,7 @@ export class OlaPageComponent implements OnInit {
       head: [['Course', 'Semester', 'Number of ECTS points']],
       body: tableBody,
       foot: [['Total', this.totalECTSpoints + " ECTS points"]],
+      startY: 100
     })
 
     const pdfBlob = doc.output('blob');
