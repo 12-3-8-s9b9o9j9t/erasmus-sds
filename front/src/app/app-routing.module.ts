@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { FacultiesListPageComponent } from './faculties-list-page/faculties-list-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: "", redirectTo: '/login', pathMatch: 'full' },
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: "faculties/:faculty/course/:id", component: CourseDetailComponent },
   { path: "ola", component: OlaPageComponent },
   { path: "profile", component: ProfileComponent },
-  { path: "admin", component: AdminPageComponent },
+  { path: "admin", component: AdminPageComponent, canActivate: [AdminGuard] },
   { path: "**", redirectTo: '/login' }
 ];
 
