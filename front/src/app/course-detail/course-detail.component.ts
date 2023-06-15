@@ -100,7 +100,8 @@ export class CourseDetailComponent implements OnInit {
         user: getID()
       }
       await this.apiService.post({ endpoint: "/courses/" + this.course.id + "/rate", data: payload });
-      alert("Your vote has been counted");
+      setTimeout(() => alert("Your vote has been counted"), 50);
+      await this.getCourse(this.course.id);
     }
     catch(e) {
       console.error("Error when sending grade :", e);
@@ -111,24 +112,7 @@ export class CourseDetailComponent implements OnInit {
     let id: string | null = this.route.snapshot.paramMap.get("id");
     if (id == null) return;
 
-    let co;
-    try {
-      co = await this.apiService.get({ endpoint: "/courses/" + id });
-    } catch (e) {
-      console.error("Error when getting course :", e);
-    }
-
-
-    this.course = {
-      id: co.id,
-      title: co.name,
-      description: co.description,
-      ECTSpoints: co.ECTS,
-      ECTScard: co.ECTScard,
-      semester: co.semester,
-      grade: gradeMap[Math.round(co.rating) as keyof typeof gradeMap],
-      faculties: co.faculties
-    };
+    await this.getCourse(+id);
 
     this.courseLoaded = true;
 
@@ -150,6 +134,27 @@ export class CourseDetailComponent implements OnInit {
     if (urlArray.length >= 2) {
       this.courses_url = "/" + urlArray[0] + "/" + urlArray[1];
     }
+  }
+
+  async getCourse(id: number): Promise<void> {
+    let co;
+    try {
+      co = await this.apiService.get({ endpoint: "/courses/" + id });
+    } catch (e) {
+      console.error("Error when getting course :", e);
+    }
+
+
+    this.course = {
+      id: co.id,
+      title: co.name,
+      description: co.description,
+      ECTSpoints: co.ECTS,
+      ECTScard: co.ECTScard,
+      semester: co.semester,
+      grade: gradeMap[Math.round(co.rating) as keyof typeof gradeMap],
+      faculties: co.faculties
+    };
   }
 }
 

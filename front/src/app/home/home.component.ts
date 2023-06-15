@@ -75,6 +75,8 @@ export class HomeComponent implements OnInit {
         });
       }
     }
+
+    this.courses.sort((c1, c2) => c1.id - c2.id);
   }
 
 }

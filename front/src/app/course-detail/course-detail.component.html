@@ -7,10 +7,14 @@
         </a>
       </nav>
     </div>
+
     <div class="grid grid-cols-2 w-full" *ngIf="courseLoaded">
-      <div class="flex items-start text-3xl">{{course.title}}</div>
-      <div class="flex items-end justify-end text-lg">{{course.ECTSpoints}} ECTS points</div>
-      <div class="text-lg">Semester : {{course.semester}}</div>
+      <div class="flex flex-col">
+        <div class="text-3xl">{{course.title}}</div>
+        <div class="text-lg">Semester : {{course.semester}}</div>
+        <div class="text-lg">Grade : {{course.grade}}</div>
+      </div>
+      <div class="flex justify-end text-lg">{{course.ECTSpoints}} ECTS points</div>
     </div>
 
     <div class="text-lg mt-10 text-justify">
